@@ -1,10 +1,13 @@
 import Image from "next/image";
-import Navbar from "./Components/Navbar";
+import Women from "./Components/Women";
+import Guide from "./Components/Guide";
+
 
 export default function Home() {
   return (
-    <h1 className="font-bold text-teal-500 text-2xl">
-      Hello World
-    </h1>
+    <>
+      <Women />
+      <Guide />
+    </>
   );
 }
