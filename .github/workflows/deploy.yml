@@ -25,7 +25,7 @@ jobs:
       run: npm run build
 
     - name: Deploy to EC2
-      # uses: easingthemes/ssh-deploy@v2.1.5
+      uses: easingthemes/ssh-deploy@v2.1.5
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         REMOTE_HOST: ec2-3-26-184-242.ap-southeast-2.compute.amazonaws.com
