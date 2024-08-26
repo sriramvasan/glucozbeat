@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Women from "./Components/Women";
+import Women from "./Women/page";
 import Guide from "./Components/Guide";
 
 

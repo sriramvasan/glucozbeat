@@ -1,32 +1,3 @@
-// import React from 'react';
-// import Image from 'next/image';
-
-// const Women = () => {
-//   return (
-//     <section className="max-container padding-container flex flex-col gap-10 py-10 pb-32 lg:flex-row lg:items-center">
-//       {/* Left Side: Text Content */}
-//       <div className="flex-1">
-//         <h1 className="bold-18 lg:bold-32">
-//         Here for South Asian women in Australia navigating gestational diabetes.</h1>
-//         <p className="regular-16 mt-6 text-gray-30 lg:max-w-[480px]">
-//         With culturally tailored advice, compassionate support, and practical tips, we’re by your side through every step of your pregnancy journey.        </p>
-//       </div>
-
-//       {/* Right Side: Image */}
-//       <div className="flex-1">
-//         <Image
-//           src="/homepage-bg.jpg"
-//           alt="Family Support"
-//           width={600} // Adjust based on your desired width
-//           height={400} // Adjust based on your desired height
-//           className="rounded-lg object-cover"
-//         />
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Women;
 
 import { PEOPLE_URL } from "../Constants";
 import Image from "next/image";

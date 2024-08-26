@@ -38,6 +38,10 @@ body {
   flex-direction: column; */
 }
 
+main{
+  min-height: 70vh;
+}
+
 /* Tailwind Utility Layer */
 @layer utilities {
   /* From the first version */

@@ -11,11 +11,17 @@ const Navbar = () => {
       </Link>
 
       <ul className="hidden h-full gap-12 lg:flex">
-        {NAV_LINKS.map((link) => (
+        {/* {NAV_LINKS.map((link) => (
           <Link href={link.href} key={link.key} className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">
             {link.label}
           </Link>
-        ))}
+        ))} */}
+        <li> <Link href='/Women' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Women</Link></li>
+        <li> <Link href='/UnderstandingGDM' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Understand GDM </Link></li>
+        <li> <Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold"> Find healthy foods</Link></li>
+        <li> <Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Explore receipes </Link></li>
+        <li> <Link href='/About' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Meet the team</Link></li>
+        <li></li>
       </ul>
 
       <div className="lg:flexCenter hidden">
