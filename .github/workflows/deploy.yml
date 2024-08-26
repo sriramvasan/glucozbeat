@@ -22,7 +22,7 @@ jobs:
         TARGET: /home/ubuntu/glucozbeat
 
     - name: Executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@0.1.4
+      uses: appleboy/ssh-action@master
       with:
         host: ${{ env.REMOTE_HOST }}
         username: ${{ env.REMOTE_USER }}
