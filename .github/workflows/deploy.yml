@@ -22,13 +22,13 @@ jobs:
         TARGET: /home/ubuntu/glucozbeat
 
     - name: Executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@0.1.4
-        with:
-          host: ${{ env.REMOTE_HOST }}
-          username: ${{ env.REMOTE_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd $TARGET
-            npm install
-            npm run build
-            pm2 restart all
+      uses: appleboy/ssh-action@0.1.4
+      with:
+        host: ${{ env.REMOTE_HOST }}
+        username: ${{ env.REMOTE_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd $TARGET
+          npm install
+          npm run build
+          pm2 restart all
