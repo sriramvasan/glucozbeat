@@ -32,21 +32,12 @@ jobs:
         REMOTE_USER: ubuntu
         TARGET: /home/ubuntu/glucozbeat
 
-      # with:
-      #   args: "npm install && npm run build && pm2 restart all"
-      # run: |
-      #   mkdir -p ~/.ssh
-      #   echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-      #   chmod 600 ~/.ssh/id_rsa
-      #   ssh-keyscan $REMOTE_HOST >> ~/.ssh/known_hosts
-      #   scp -r * $REMOTE_USER@$REMOTE_HOST:$TARGET
-      #   ssh $REMOTE_USER@$REMOTE_HOST "cd $TARGET && npm install && npm run build && pm2 restart all"
     - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
-          host: $REMOTE_HOST
-          username: $REMOTE_USER
-          key: $SSH_PRIVATE_KEY
+          host: ${{ env.REMOTE_HOST }}
+          username: ${{ env.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd $TARGET
             npm install
