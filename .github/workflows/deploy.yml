@@ -27,8 +27,9 @@ jobs:
         host: ${{ env.REMOTE_HOST }}
         username: ${{ env.REMOTE_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port : 22
         script: |
-          cd $TARGET
+          cd ${{ env.TARGET }}
           npm install
           npm run build
           pm2 restart all
