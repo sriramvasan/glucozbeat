@@ -6,17 +6,17 @@ import { ImageCard } from '../Components/ImageCard';
 const MythData = [
   { 
       id: 1,
-      title : "Myth 1: Eating too much sugar causes GDM.",
+      title : "Myth 1: Eating too much sugar causes GDM?",
       content: "Yes, diet matters, but GDM isn’t just about what you eat—it’s influenced by things like genetics, age, and hormones. It’s a common myth that eating sugar alone causes GDM. The real issue is more about overall energy balance and weight gain during pregnancy, not specific foods. So while it’s important to watch your carbs, they aren’t the enemy—it’s about finding the right balance that works for you."
   },
   {   
       id: 2, 
-      title : "Myth 2: I will need insulin to manage my gestational diabetes.",
+      title : "Myth 2: I will need insulin to manage my gestational diabetes?",
       content: "Don't worry, most women with gestational diabetes don’t need insulin. The first step is usually making small changes to your diet and getting some regular exercise, which can often keep your blood sugar in check. Your body is already working hard to produce more insulin during pregnancy, and these tweaks can help it do its job. Insulin can be a great tool if needed, but for most women, it’s not necessary—only about 10-20% actually end up needing it."
   },
   {
     id: 3,
-    title : "Myth 3: All women with GDM will have big babies.",
+    title : "Myth 3: All women with GDM will have big babies?",
     content: "Having a big baby is a concern with GDM, but it’s not a given. The risk comes from higher blood sugar levels passing from mom to baby, leading to extra fat storage in the baby. But the good news is, by keeping your blood sugar in check through diet and exercise, you can greatly lower the chances of having a large baby. It’s all about managing those sugar levels, and with the right plan, you can have a healthy pregnancy and baby."
   },
   {
