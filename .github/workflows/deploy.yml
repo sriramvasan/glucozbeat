@@ -1,0 +1,35 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Deploy to EC2
+      uses: easingthemes/ssh-deploy@v2.1.5
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        REMOTE_HOST: ec2-3-26-184-242.ap-southeast-2.compute.amazonaws.com
+        REMOTE_USER: ubuntu
+        TARGET: /home/ubuntu/glucozbeat
+
+    - name: Executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.REMOTE_HOST }}
+        username: ${{ env.REMOTE_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port : 22
+        script: |
+          cd ${{ env.TARGET }}
+          git pull
+          npm run build
+          pm2 restart all
