@@ -24,19 +24,22 @@ const Navbar = () => {
         <ul className="hidden h-full gap-12 sm:flex">
           <li><Link href='/Women' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Home</Link></li>
           <li><Link href='/UnderstandingGDM' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Understand GDM</Link></li>
-          <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Find healthy foods</Link></li>
-          <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Explore recipes</Link></li>
+          <li><Link href='/CheckYourRisk' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Wellness Check</Link></li>
+          {/* <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Find healthy foods</Link></li>
+          <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Explore recipes</Link></li> */}
           <li><Link href='/About' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Meet the team</Link></li>
         </ul>
 
-        <div className="lg:flexCenter hidden">
+        {/* <div className="lg:flexCenter hidden">
+          <Link href="/CheckYourRisk">
           <Button
             type="button"
             title="Check Your Risk"
             icon="/user.svg"
             variant="btn_dark_green"
           />
-        </div>
+          </Link>
+        </div> */}
 
         <div onClick={handleNav} className="inline-block cursor-pointer sm:hidden">
           <Image
@@ -73,7 +76,14 @@ const Navbar = () => {
                 Understand GDM
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/CheckYourRisk">
+              <li
+                onClick={() => setMenuOpen(false)}
+                className="py-4 cursor-pointer">
+                Wellness Check
+              </li>
+            </Link>
+            {/* <Link href="/">
               <li
                 onClick={() => setMenuOpen(false)}
                 className="py-4 cursor-pointer">
@@ -86,7 +96,7 @@ const Navbar = () => {
                 className="py-4 cursor-pointer">
                 Explore receipes
               </li>
-            </Link>
+            </Link> */}
             <Link href="/">
               <li
                 onClick={() => setMenuOpen(false)}
