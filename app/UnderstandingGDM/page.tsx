@@ -30,21 +30,21 @@ const MythData = [
 const UnderstandingGDM = () => {
   return (
     <>
-    <div>s
+    <div>
       <h1 className='m-8 px-8 '>Debunk the Rumors: Understanding GDM </h1>
       <p className='p-8 m-8'> Let’s explore common myths about gestational diabetes and see what the data says.</p>
     </div>
-    <div className='hide-scrollbar flex h-[550px] m-5 p-5' >
+    <div className='flex h-[550px] max-w-[734px] mx-auto justify-center items-center' >
       <ImageCard 
-      backgroundImage='/priya-persona-2.jpg' 
+      backgroundImage='/priya-persona-4.jpg' 
       title='Meet Priya, a first-time mom in her early 30s.' 
       subtitle='When Priya was diagnosed with GDM, She was worried she did something wrong—maybe she ate too much sugar? But is that really the cause? '
-      src = "/menu.svg"></ImageCard>
+      src = "/menu.svg" ></ImageCard>
     </div>
 
-    <div className='m-5 p-5'>
+    <div className='m-5 p-5 '>
     {MythData.map((data) =>(
-      <Accordion key= {data.id} title={data.title} content={data.content}></Accordion>
+      <Accordion key= {data.id} title={data.title} content={data.content} className = "flex mx-auto w-[800px] justify-center items-center"></Accordion>
       ))}
     </div>
 
