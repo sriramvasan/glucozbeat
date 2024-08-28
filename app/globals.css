@@ -46,6 +46,7 @@ body {
 
 main{
   min-height: 70vh;
+  padding-top: 32px;
 }
 
 /* Tailwind Utility Layer */
@@ -196,3 +197,4 @@ main{
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
