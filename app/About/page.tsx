@@ -5,12 +5,15 @@ const AboutPage = () => {
         <div className="container mx-auto max-w-7xl p-6">
             {/* Header Section with Purple Background */}
             <header className="text-center my-12 bg-purple-600 text-white py-12 rounded-lg shadow-lg">
-                <h1 className="text-5xl font-bold">Hey! <br /> <span>We're GlucozBeat 😊</span></h1>
+                <h1 className="text-5xl font-bold">Hey there stranger! <br /> <span>EZPZ HERE🍋</span></h1>
                 <p className="text-lg mt-4">
-                    We're an optimistic and gratitude-filled group of remote workers scattered around the world and dedicated to creating a product our customers will use and love.
+                    We're an optimistic and gratitude-filled group of remote workers scattered around the world
                 </p>
-                <p className="text-lg mt-2">
-                    Read on to learn more about GlucozBeat's story and history and see the full GlucozBeat team.
+                <p className="text-lg mt">
+                    dedicated to creating a product our customers will use and love.
+                </p>
+                <p className="text-sm mt-4">
+                    Read on to learn more about the GlucozBeat's story and who we are.
                 </p>
             </header>
 
@@ -38,9 +41,7 @@ const AboutPage = () => {
 
                 {/* Images or other content */}
                 <div className="flex flex-col space-y-4">
-                    <img src="./tom.jpg" alt="Team at Work" className="rounded-lg shadow-lg" />
-                    <img src=".tom.jpg" alt="Team Event" className="rounded-lg shadow-lg" />
-                    <img src=".tom.jpg" alt="Office" className="rounded-lg shadow-lg" />
+                    <img src="./TA40.jpg" alt="Team at Work" className="rounded-lg shadow-lg" />
                 </div>
             </section>
 
@@ -50,28 +51,28 @@ const AboutPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                     <div className="text-center">
                         <img src="./tom.jpg" alt="Member 1" className="rounded-full w-32 h-32 mx-auto shadow-lg" />
-                        <h3 className="mt-4 text-xl font-semibold">Member 1</h3>
-                        <p className="text-gray-600">Role or Class</p>
+                        <h3 className="mt-4 text-xl font-semibold">Margaret Tai</h3>
+                        <p className="text-gray-600">MCS</p>
                     </div>
                     <div className="text-center">
                         <img src="./tom.jpg" alt="Member 2" className="rounded-full w-32 h-32 mx-auto shadow-lg" />
-                        <h3 className="mt-4 text-xl font-semibold">Member 2</h3>
-                        <p className="text-gray-600">Role or Class</p>
+                        <h3 className="mt-4 text-xl font-semibold">Nhan Nguyen</h3>
+                        <p className="text-gray-600">MAI</p>
                     </div>
                     <div className="text-center">
                         <img src="./tom.jpg" alt="Member 3" className="rounded-full w-32 h-32 mx-auto shadow-lg" />
-                        <h3 className="mt-4 text-xl font-semibold">Member 3</h3>
-                        <p className="text-gray-600">Role or Class</p>
+                        <h3 className="mt-4 text-xl font-semibold">Sriram Vasan</h3>
+                        <p className="text-gray-600">MDS</p>
                     </div>
                     <div className="text-center">
                         <img src="./tom.jpg" alt="Member 4" className="rounded-full w-32 h-32 mx-auto shadow-lg" />
-                        <h3 className="mt-4 text-xl font-semibold">Member 4</h3>
-                        <p className="text-gray-600">Role or Class</p>
+                        <h3 className="mt-4 text-xl font-semibold">Susan Yu</h3>
+                        <p className="text-gray-600">MIT</p>
                     </div>
                     <div className="text-center">
-                        <img src="./tom.jpg" alt="Member 5" className="rounded-full w-32 h-32 mx-auto shadow-lg" />
-                        <h3 className="mt-4 text-xl font-semibold">Member 5</h3>
-                        <p className="text-gray-600">Role or Class</p>
+                        <img src="./jacky.jpg" alt="Member 5" className="rounded-full w-32 h-32 mx-auto shadow-lg" />
+                        <h3 className="mt-4 text-xl font-semibold">Zihao Dai</h3>
+                        <p className="text-gray-600">MBIS</p>
                     </div>
                 </div>
             </section>
