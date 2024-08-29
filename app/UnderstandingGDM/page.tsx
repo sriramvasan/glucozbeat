@@ -34,7 +34,7 @@ const UnderstandingGDM = () => {
     <>
     <div className='pb-8  mx-auto max-w-[1000px] justify-center text-justify'>
       <h1 className='mx-8 px-8 '>Debunk the Rumors: Understanding GDM </h1>
-      <p className='px-8 mx-8'> Let’s explore common myths about gestational diabetes and see what the data says.</p>
+      <p className='px-8 mx-8'> Let&apos;s explore common myths about gestational diabetes and see what the data says.</p>
     </div>
     <section className='relative flex flex-col'>
       <div className='flex min-w-[250px] h-[360px] gap-8 max-w-[734px] mx-auto justify-center items-center' >
@@ -67,7 +67,7 @@ const UnderstandingGDM = () => {
       <div className="flexEnd mt-10 px-6 lg:-mt-60 lg:mr-6">
           <div className="bg-purple-500 p-8 lg:max-w-[500px] xl:max-w-[734px] xl:rounded-5xl xl:px-16 xl:py-20 relative w-full overflow-hidden rounded-3xl">
             <h2 className="regular-20 md:regular-28 2xl:regular-64 capitalize text-white">
-            Remember <strong>You're not alone</strong> 
+            Remember <strong>You&apos;re not alone</strong> 
             </h2>
             <p className="regular-14 xl:regular-16 mt-5 text-white">
             Managing gestational diabetes can feel overwhelming, especially when faced with unfamiliar advice and conflicting information. That’s why we’re here—to guide you through every step of your journey with support, clarity, and culturally relevant resources
@@ -94,8 +94,8 @@ const UnderstandingGDM = () => {
     </div>
 
     <div className='p-5 mb-5 mx-auto max-w-[1000px] justify-center text-justify rounded-lg bg-purple-300 bg-opacity-25'>
-      <h2>Relating Back to Priya’s Experience</h2>
-      <p className=''>For Priya, understanding that GDM isn’t her fault was a relief. She focused on simple steps like balanced meals and moderate exercise, which helped keep her and her baby healthy</p>
+      <h2>Relating Back to Priya&apos;s Experience</h2>
+      <p className=''>For Priya, understanding that GDM isn&apos;t her fault was a relief. She focused on simple steps like balanced meals and moderate exercise, which helped keep her and her baby healthy</p>
       {/* <p>Remember: You are not alone. Like Priya, you can take control of your GDM journey with the right knowledge and support. Explore our resources to find meal plans and exercises tailored to your needs.</p> */}
     </div>
 
