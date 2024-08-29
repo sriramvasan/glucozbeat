@@ -23,8 +23,12 @@ export enum RiskCalculatorPlaceOfBirth {
 export const riskCalculatorFormSchema = z.object({
   ageGroup: z.nativeEnum(RiskCalculatorAgeGroup),
   placeOfBirth: z.nativeEnum(RiskCalculatorPlaceOfBirth),
-  weight: z.number(),
-  height: z.number(),
+  weight: z
+    .number()
+    .positive({ message: "Please enter a valid weight as a positive number." }),
+  height: z
+    .number()
+    .positive({ message: "Please enter a valid height as a positive number." }),
   familyHistory: z.boolean(),
   addictions: z.boolean(),
 });

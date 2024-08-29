@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ChangeEvent, ReactNode, useReducer, useState } from "react";
+import React, { ChangeEvent, ReactNode, useReducer, useRef, useState } from "react";
 import { z } from "zod";
 import {
     RiskCalculatorAgeGroup,
@@ -20,6 +20,9 @@ interface FormStepProps {
     isFormDataValid: (
         key: keyof z.infer<typeof riskCalculatorFormSchema>
     ) => boolean;
+    getFormDataErrorMessage: (
+        key: keyof z.infer<typeof riskCalculatorFormSchema>
+      ) => string | undefined;
     updateFormData: (
         key: keyof z.infer<typeof riskCalculatorFormSchema>,
         value: any
@@ -216,8 +219,9 @@ const WeightAndHeightStep = ({
     formData,
     updateFormData,
     isFormDataValid,
+    getFormDataErrorMessage,
     prevStep,
-    nextStep,
+    nextStep,y
 }: FormStepProps) => {
     return (
         <>
@@ -230,34 +234,50 @@ const WeightAndHeightStep = ({
                     higher BMI can increase the chance of developing diabetes.
                 </WhyDoesThisMatter>
                 <div className="join flex items-center justify-center mt-4">
-                    <label className="input input-bordered flex items-center gap-2">
-                        Weight
-                        <input
-                            type="number"
-                            name="weight"
-                            aria-label="Weight"
-                            value={formData.weight}
-                            className="grow"
-                            onChange={(e) => updateFormData("weight", Number(e.target.value))}
-                        />
-                        kg
+                    <label className="form-control relative">
+                        <div className="input input-bordered flex items-center gap-2">
+                            Weight
+                            <input
+                                type="number"
+                                name="weight"
+                                aria-label="Weight"
+                                value={formData.weight}
+                                className="grow"
+                                onChange={(e) =>
+                                    updateFormData("weight", Number(e.target.value))
+                                }
+                            />
+                            kg
+                        </div>
+                        <div className="label absolute top-10">
+                            <span className="label-text-alt text-error">
+                                {getFormDataErrorMessage("weight")}
+                            </span>
+                        </div>
                     </label>
                     <span className="text-gray-500 text-lg px-4">/</span>
                     <div className="indicator">
                         <span className="indicator-item badge">2</span>
-                        <label className="input input-bordered flex items-center gap-2">
-                            Height
-                            <input
-                                type="number"
-                                name="height"
-                                aria-label="Height"
-                                value={formData.height}
-                                className="grow"
-                                onChange={(e) =>
-                                    updateFormData("height", Number(e.target.value))
-                                }
-                            />
-                            cm
+                        <label className="form-control relative">
+                            <div className="input input-bordered flex items-center gap-2">
+                                Height
+                                <input
+                                    type="number"
+                                    name="height"
+                                    aria-label="Height"
+                                    value={formData.height}
+                                    className="grow"
+                                    onChange={(e) =>
+                                        updateFormData("height", Number(e.target.value))
+                                    }
+                                />
+                                cm
+                            </div>
+                            <div className="label absolute top-10">
+                                <span className="label-text-alt text-error">
+                                    {getFormDataErrorMessage("height")}
+                                </span>
+                            </div>
                         </label>
                     </div>
                     <span className="text-gray-500 text-lg px-4">=</span>
@@ -456,6 +476,9 @@ export default function CheckYourRiskPage() {
         steps.map(() => false)
     );
 
+    const errorDialogRef = useRef<HTMLDialogElement>(null);
+    const [errorDialogMessage, setErrorDialogMessage] = useState("");
+
     const stepProps: FormStepProps = {
         formData,
         setFormData,
@@ -476,17 +499,24 @@ export default function CheckYourRiskPage() {
                 [key]: formData[key],
             }).success;
         },
-        updateFormData: (key, value) => {
-            if (
-                riskCalculatorFormSchema
-                    // @ts-ignore
-                    .pick({ [key]: true })
-                    .safeParse({ [key]: value }).success
-            ) {
-                setFormData({ ...formData, [key]: value });
-            } else {
-                throw new Error("Invalid form data");
+        getFormDataErrorMessage: (key) => {
+            const { success, error } = riskCalculatorFormSchema
+                // @ts-ignore
+                .pick({ [key]: true })
+                .safeParse({
+                    [key]: formData[key],
+                });
+            if (success) {
+                return undefined;
             }
+            return error.format()[key]?._errors[0];
+        },
+        updateFormData: (key, value) => {
+            const { success, error } = riskCalculatorFormSchema
+                // @ts-ignore
+                .pick({ [key]: true })
+                .safeParse({ [key]: value });
+            setFormData({ ...formData, [key]: value });
         },
     };
 
@@ -514,6 +544,19 @@ export default function CheckYourRiskPage() {
                     <div className="flex flex-col gap-y-4">
                         {steps[currentStep].component(stepProps)}
                     </div>
+
+                    <dialog className="modal" ref={errorDialogRef}>
+                        <div className="modal-box">
+                            <p className="py-4">
+                                {errorDialogMessage || "Something went wrong"}
+                            </p>
+                            <div className="modal-action">
+                                <form method="dialog">
+                                    <button className="btn">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
             </div>
         </div>
