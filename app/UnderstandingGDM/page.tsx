@@ -3,6 +3,7 @@ import React from 'react'
 import Accordion from '../Components/Accordian'
 import { ImageCard } from '../Components/ImageCard';
 import FlipCard from '../Components/FlipCard/FlipCard';
+import Image from 'next/image';
 
 const MythData = [
   { 
@@ -22,8 +23,8 @@ const MythData = [
   },
   {
     id:4,
-    title : "Myth 4: Addressing the Fear Section",
-    content: "GDM is a result of complex interactions between hormones, genetics, and other factors beyond your control. What matters most is how you manage it with the right knowledge and support"
+    title : "All women who develop GDM will have permanent diabetes following childbirth?",
+    content: "The development of GDM during pregnancy is often resolved as the blood-glucose levels regulate in the body, providing lower insulin resistance, and return glucose to normal levels. This can be monitored in screening. And, it is not certain, if not likely, that the woman will have a permanent diagnosis of diabetes; although immediate management during GDM, good diet, minimal excess weight, monitored signs of any health problems, active lifestyle and detecting prediabetes if present, will lower the associated risk with future Type-2 Diabetes diagnosis."
   }
 ]
 
@@ -31,35 +32,52 @@ const MythData = [
 const UnderstandingGDM = () => {
   return (
     <>
-    <div>
-      <h1 className='m-8 px-8 '>Debunk the Rumors: Understanding GDM </h1>
-      <p className='p-8 m-8'> Let’s explore common myths about gestational diabetes and see what the data says.</p>
+    <div className='pb-8  mx-auto max-w-[1000px] justify-center text-justify'>
+      <h1 className='mx-8 px-8 '>Debunk the Rumors: Understanding GDM </h1>
+      <p className='px-8 mx-8'> Let’s explore common myths about gestational diabetes and see what the data says.</p>
     </div>
-    <div className='flex h-[550px] max-w-[734px] mx-auto justify-center items-center' >
-      <ImageCard 
-      backgroundImage='/priya-persona-4.jpg' 
-      title='Meet Priya, a first-time mom in her early 30s.' 
-      subtitle='When Priya was diagnosed with GDM, She was worried she did something wrong—maybe she ate too much sugar? But is that really the cause? '
-      src = "/menu.svg" ></ImageCard>
+    <div className='flex min-w-[250px] h-[340px] gap-8 max-w-[734px] mx-auto justify-center items-center' >
+      <div className={`h-full w-full max-w-[1100px] bg-cover bg-no-repeat lg:rounded-r-5xl lg:rounded-l-5xl  2xl:rounded-5xl`}
+      style={{
+        backgroundImage: 'url(/priya-persona-4.jpg)' ,
+      }}
+      >
+       <div className="flex h-full flex-col items-start justify-between p-6 lg:px-20 lg:py-10">
+       <div className="flexCenter gap-4">
+          <div className="rounded-full bg-purple-300 p-4">
+            <Image
+              src = "/menu.svg"
+              alt = "map"
+              width={28}
+              height={28}
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+          <h4 className="bold-18 text-white">Meet Priya, a first-time mom in her early 30s.</h4>
+          <p className="regular-14 text-white">When Priya was diagnosed with GDM, She was worried she did something wrong—maybe she ate too much sugar? But is that really the cause?</p>
+          </div>
+        </div>
+       </div>
+      </div>
     </div>
 
     <div className='m-5 p-5 '>
     {MythData.map((data) =>(
-      // <Accordion key= {data.id} title={data.title} content={data.content} className = "flex mx-auto w-[800px] justify-center items-center"></Accordion>
-      <FlipCard key={data.id} heading ={data.title} content={data.content}/>
+      <Accordion key= {data.id} title={data.title} content={data.content} className = "flex mx-auto w-[200px] sm:w-[500px] lg:w-[800px] justify-center items-center"></Accordion>
+      // <FlipCard key={data.id} heading ={data.title} content={data.content}/>
       
       ))}
 
       
     </div>
 
-    <div className='p-5 m-5'>
+    <div className='p-5  mx-auto max-w-[1000px] justify-center text-justify'>
       <h1>Relating Back to Priya’s Experience</h1>
       <p className=''>For Priya, understanding that GDM isn’t her fault was a relief. She focused on simple steps like balanced meals and moderate exercise, which helped keep her and her baby healthy</p>
+      <p>Remember: You are not alone. Like Priya, you can take control of your GDM journey with the right knowledge and support. Explore our resources to find meal plans and exercises tailored to your needs.</p>
     </div>
 
-    <div className='p-5 m-5'>
-      <p>Remember: You are not alone. Like Priya, you can take control of your GDM journey with the right knowledge and support. Explore our resources to find meal plans and exercises tailored to your needs.</p>
+    <div className='px-5 mx-5'>
     </div>
     </>
   )
