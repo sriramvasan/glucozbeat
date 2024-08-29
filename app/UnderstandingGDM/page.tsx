@@ -93,7 +93,7 @@ const UnderstandingGDM = () => {
       
     </div>
 
-    <div className='p-5  mx-auto max-w-[1000px] justify-center text-justify'>
+    <div className='p-5 mb-5 mx-auto max-w-[1000px] justify-center text-justify rounded-lg bg-purple-300 bg-opacity-25'>
       <h2>Relating Back to Priya’s Experience</h2>
       <p className=''>For Priya, understanding that GDM isn’t her fault was a relief. She focused on simple steps like balanced meals and moderate exercise, which helped keep her and her baby healthy</p>
       {/* <p>Remember: You are not alone. Like Priya, you can take control of your GDM journey with the right knowledge and support. Explore our resources to find meal plans and exercises tailored to your needs.</p> */}
