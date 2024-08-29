@@ -51,6 +51,7 @@ body {
 
 main{
   min-height: 70vh;
+  padding-top: 5.5rem;
 }
 
 /* Tailwind Utility Layer */
@@ -174,6 +175,11 @@ main{
     @apply text-[16px] font-[700];
   }
 
+  .bold-purple {
+    font-weight: bold;
+    color: #b99bf0;
+}
+
   /* Additional components */
   .hero-map {
     @apply absolute right-0 top-0 h-screen w-screen bg-pattern-2 bg-cover bg-center md:-right-28 xl:-top-60;
@@ -201,3 +207,4 @@ main{
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
