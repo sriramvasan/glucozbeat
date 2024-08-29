@@ -1,0 +1,15 @@
+.heading2{
+    font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.content{
+    padding : 0.5rem;
+    margin : 0.5rem;
+}
+
+.position{
+    position:relative;
+    left: 27%;
+}
