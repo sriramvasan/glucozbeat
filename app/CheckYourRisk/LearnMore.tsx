@@ -296,7 +296,7 @@ export const LearnMoreAboutGSMRisks = () => {
         className="btn btn-primary btn-wide"
         onClick={() => learnMoreRef.current?.showModal()}
       >
-        Learn more about GSM risks
+        Learn more about GSM
       </button>
       <dialog ref={learnMoreRef} className="modal">
         <div className="modal-box max-w-3xl">

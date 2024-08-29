@@ -97,68 +97,68 @@ const getRiskCategory = (riskScore: number): "Low" | "Moderate" | "High" => {
   }
 };
 
-const HighRiskNextSteps = () => {
-  const [option, setOption] = useState(0);
+// const HighRiskNextSteps = () => {
+//   const [option, setOption] = useState(0);
 
-  return (
-    <>
-      <div className="divider px-12"></div>
-      <h3>
-        Since you&apos;re at <b className="text-red-400">high risk</b>
-      </h3>
-      <div>
-        <div className="form-control">
-          <label className="label cursor-pointer justify-normal">
-            <input
-              type="radio"
-              name="radio-10"
-              className="radio"
-              checked={option === 0}
-              onChange={() => setOption(0)}
-            />
-            <span className="label-text pl-2">
-              I want to learn how to{" "}
-              <b className="text-red-400">prevent or delay type 2 diabetes.</b>
-            </span>
-          </label>
-        </div>
-        <div className="form-control">
-          <label className="label cursor-pointer justify-normal">
-            <input
-              type="radio"
-              name="radio-10"
-              className="radio"
-              checked={option === 1}
-              onChange={() => setOption(1)}
-            />
-            <span className="label-text pl-2">
-              I have been diagnosed with type 1 or type 2 diabetes.
-            </span>
-          </label>
-        </div>
-      </div>
-      <div className="card glass text-sm px-4 py-2 mt-2">
-        {option === 0 && (
-          <p>
-            Even with prediabetes, you have the power to improve your health.
-            Studies show that a National Diabetes Prevention Program can help
-            you lose weight, reduce your risk for diabetes, and improve your
-            overall wellbeing.
-          </p>
-        )}
-        {option === 1 && (
-          <p>
-            Managing diabetes can be a challenge and can seem overwhelming.
-            Having a diabetes educator can make managing your diabetes easier.
-            They work with you to develop a plan to stay healthy, and give you
-            the tools and ongoing support you need to make that plan a regular
-            part of your life.
-          </p>
-        )}
-      </div>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <div className="divider px-12"></div>
+//       <h3>
+//         Since you&apos;re at <b className="text-red-400">high risk</b>
+//       </h3>
+//       <div>
+//         <div className="form-control">
+//           <label className="label cursor-pointer justify-normal">
+//             <input
+//               type="radio"
+//               name="radio-10"
+//               className="radio"
+//               checked={option === 0}
+//               onChange={() => setOption(0)}
+//             />
+//             <span className="label-text pl-2">
+//               I want to learn how to{" "}
+//               <b className="text-red-400">prevent or delay type 2 diabetes.</b>
+//             </span>
+//           </label>
+//         </div>
+//         <div className="form-control">
+//           <label className="label cursor-pointer justify-normal">
+//             <input
+//               type="radio"
+//               name="radio-10"
+//               className="radio"
+//               checked={option === 1}
+//               onChange={() => setOption(1)}
+//             />
+//             <span className="label-text pl-2">
+//               I have been diagnosed with type 1 or type 2 diabetes.
+//             </span>
+//           </label>
+//         </div>
+//       </div>
+//       <div className="card glass text-sm px-4 py-2 mt-2">
+//         {option === 0 && (
+//           <p>
+//             Even with prediabetes, you have the power to improve your health.
+//             Studies show that a National Diabetes Prevention Program can help
+//             you lose weight, reduce your risk for diabetes, and improve your
+//             overall wellbeing.
+//           </p>
+//         )}
+//         {option === 1 && (
+//           <p>
+//             Managing diabetes can be a challenge and can seem overwhelming.
+//             Having a diabetes educator can make managing your diabetes easier.
+//             They work with you to develop a plan to stay healthy, and give you
+//             the tools and ongoing support you need to make that plan a regular
+//             part of your life.
+//           </p>
+//         )}
+//       </div>
+//     </>
+//   );
+// };
 
 export const Results = ({ formData }: ResultsProps) => {
   const riskScore = calculateRiskScore(formData);
@@ -219,27 +219,33 @@ export const Results = ({ formData }: ResultsProps) => {
       </div>
       <div role="alert" className="alert w-full md:w-1/2 mx-auto">
         <div>
-          <h3 className="font-bold">You have scored {riskScore} points</h3>
           {riskCategory === "Low" && (
             <div className="text-sm">
-              This means you are at low risk of developing type 2 diabetes
-              within 5 years. It is important you continue to maintain a healthy
-              lifestyle.
+            <h3 className="bold-16" style={{ marginBottom: '1rem' }}>Your results indicate a low GSM risk</h3>
+              Great news! 
+              Keep up your healthy habits and continue to take care of yourself and 
+              your baby. Remember, regular check-ups and maintaining a balanced diet 
+              and exercise routine are key to a healthy pregnancy.
             </div>
           )}
 
           {riskCategory === "Moderate" && (
             <div className="text-sm">
-              This putting you at an increased risk of diabetes. Improving your
-              lifestyle may help reduce your risk of developing type 2 diabetes.
+                <h3 className="bold-16" style={{ marginBottom: '1rem' }}>Your results indicate a moderate GSM risk</h3>
+              This is a good time to focus on your health and take proactive steps to manage 
+              your well-being. Consider speaking with your healthcare provider about your 
+              results. They can provide guidance on diet, exercise, and monitoring to help 
+              you reduce your risk and ensure a healthy pregnancy.
             </div>
           )}
 
           {riskCategory === "High" && (
             <div className="text-sm">
-              This putting you at high risk of developing diabetes. See your
-              doctor about having a fasting blood glucose test. Act now to
-              prevent type 2 diabetes.
+                <h3 className="bold-16" style={{ marginBottom: '1rem' }}>Your results indicate a high GSM risk</h3>
+              It's important to take this seriously, but don't worry—we're here to support you. 
+              We recommend reaching out to your healthcare provider as soon as possible to discuss 
+              your results and the best steps forward. With the right care and lifestyle adjustments, 
+              you can manage this risk and have a healthy pregnancy.
             </div>
           )}
         </div>
@@ -249,11 +255,11 @@ export const Results = ({ formData }: ResultsProps) => {
         <LearnMoreAboutGSMRisks />
       </div>
 
-      {riskCategory === "High" && (
+      {/* {riskCategory === "High" && (
         <div className="w-full md:w-1/2 mx-auto">
           <HighRiskNextSteps />
         </div>
-      )}
+      )} */}
     </div>
   );
 };

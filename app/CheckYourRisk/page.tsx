@@ -73,22 +73,27 @@ const IntroStep = ({ nextStep }: FormStepProps) => {
                 Let's explore your gestational health together
             </h2>
             <p className="regular-20">
-                Gestational diabetes is a type of diabetes that can happen during pregnancy, even if you've never had diabetes before. It occurs when pregnancy hormones make it harder for your body to use insulin, which can raise your blood sugar levels. Most women are checked for gestational diabetes between 24 and 28 weeks of pregnancy, but some may need to be tested earlier. Since this condition usually doesn’t cause any symptoms, testing is very important to keep you and your baby healthy.
+            <span className="bold-purple">Gestational diabetes</span> is a type of diabetes 
+            that can happen during pregnancy, even if you've never had diabetes before. 
+            Most women are checked for gestational diabetes <span className="bold-purple">between
+                 24 and 28 weeks of pregnancy</span>, but some may need to be tested earlier. 
+                 Since this condition usually doesn’t cause any symptoms, testing is very 
+                 important to keep you and your baby healthy.
             </p>
             <p className="regular-20">
-                In this quiz, we’ll help you understand more about your health during pregnancy. Let's explore this journey together and give you the information you need to stay well!
+                In this quiz, we’ll help you understand more about your gestational health 
+                during pregnancy. Let's explore this journey together and give you the 
+                information you need to stay well!
             </p>
             <button className="btn btn-primary btn-lg btn-wide" onClick={nextStep}>
                 Start My Health Check
             </button>
             <div className="mt-1 text-gray-500">
                 <p className="text-sm">
-                    The Australian Type 2 Diabetes Risk Assessment Tool was developed by
-                    the Baker IDI Heart Diabetes Institute on behalf of the Australian,
-                    State and Territory Governments as part of the COAG initiative to
-                    reduce the risk of type 2 diabetes.
+                This Gestational health check was developed by EZPZ based on Australian Institute of Health and Welfare 2021 Diabetes statistics in combination with other academic studies.
+                This is not intended to be a substitute for professional medical advice and should not be relied on as health or personal advice
                 </p>
-                <p className="text-sm mt-4">&copy; 2010 Commonwealth of Australia</p>
+                <p className="text-sm mt-4">&copy; 2024 Glucoz</p>
             </div>
         </>
     );
@@ -221,7 +226,7 @@ const WeightAndHeightStep = ({
     isFormDataValid,
     getFormDataErrorMessage,
     prevStep,
-    nextStep,y
+    nextStep,
 }: FormStepProps) => {
     return (
         <>

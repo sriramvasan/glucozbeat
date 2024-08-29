@@ -9,17 +9,23 @@ const Footer = () => {
       <div className="padding-container max-container flex w-full flex-col gap-14">
         <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:gap-20">
           <Link href="/" className="mb-10">
-            <Image src="glucozbeat-logo.svg" alt="logo" width={200} height={80}/>
+            <Image src="glucozbeat-logo.svg" alt="logo" width={200} height={80} />
           </Link>
 
           <div className="flex flex-wrap gap-10 md:gap-20 lg:gap-32 w-full sm:justify-between md:flex-1">
             {FOOTER_LINKS.map((columns) => (
               <FooterColumn title={columns.title} key={columns.title}>
                 <ul className="regular-14 flex flex-col gap-4 text-gray-30">
-                  {columns.links.map((link) => (
-                    <Link href="/" key={link}>
-                      {link}
-                    </Link>
+                {columns.links.map((link) => (
+                    link.isExternal ? (
+                      <a href={link.url} key={link.label} target="_blank" rel="noopener noreferrer">
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link href={link.url} key={link.label}>
+                        {link.label}
+                      </Link>
+                    )
                   ))}
                 </ul>
               </FooterColumn>
@@ -28,18 +34,16 @@ const Footer = () => {
             <div className="flex flex-col gap-5">
               <FooterColumn title={FOOTER_CONTACT_INFO.title}>
                 {FOOTER_CONTACT_INFO.links.map((link) => (
-                  <Link
-                    href="/"
-                    key={link.label}
-                    className="flex gap-4 md:flex-col lg:flex-row"
-                  >
-                    <p className="whitespace-nowrap">
-                      {link.label}:
-                    </p>
-                    <p className="medium-14 whitespace-nowrap text-blue-70">
-                      {link.value}
-                    </p>
-                  </Link>
+                  <div key={link.label} className="flex gap-4 md:flex-col lg:flex-row">
+                    <p className="regular-14 text-gray-30 whitespace-nowrap">{link.label}:</p>
+                    <address className="regular-14 text-gray-30 not-italic">
+                      {link.value.map((line, index) => (
+                        <div key={index} className="whitespace-nowrap">
+                          {line}
+                        </div>
+                      ))}
+                    </address>
+                  </div>
                 ))}
               </FooterColumn>
             </div>
@@ -83,51 +87,6 @@ const FooterColumn = ({ title, children }: FooterColumnProps) => {
 export default Footer
 
 
-// import Link from 'next/link';
-// import Image from 'next/image';
 
-// const Footer = () => {
-//   return (
-//     <footer className="bg-sky-800 text-white py-6 mt-auto">
-//       <div className="container mx-auto px-4">
-//         <div className="flex flex-wrap justify-between items-center">
-//           {/* Logo Section */}
-//           <div className="mb-4 md:mb-0">
-//             <Link href="/">
-//                 <Image src="/glucozbeat-logo.svg" alt="logo" width={150} height={50} />
-//             </Link>
-//           </div>
-
-//           {/* Links Section */}
-//           <div className="flex flex-wrap gap-6 text-sm">
-//             <Link href="/About">About Us</Link>
-//             <Link href="/Services">Services</Link>
-//             <Link href="/Contact">Contact</Link>
-//             <Link href="/PrivacyPolicy">Privacy Policy</Link>
-//           </div>
-
-//           {/* Social Media Section */}
-//           <div className="flex gap-4">
-//             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-//               <Image src="/twitter-icon.svg" alt="Twitter" width={24} height={24} />
-//             </a>
-//             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-//               <Image src="/facebook-icon.svg" alt="Facebook" width={24} height={24} />
-//             </a>
-//             <a href="https://instragram.com" target="_blank" rel="noopener noreferrer">
-//               <Image src="/instagram-icon.svg" alt="Instagram" width={24} height={24} />
-//             </a>
-//           </div>
-//         </div>
-
-//         <div className="text-center text-sm mt-4">
-//           &copy; {new Date().getFullYear()} Glucozbeat. All Rights Reserved.
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// }
-
-// export default Footer;
 
 
