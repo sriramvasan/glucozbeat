@@ -242,7 +242,7 @@ export const Results = ({ formData }: ResultsProps) => {
           {riskCategory === "High" && (
             <div className="text-sm">
                 <h3 className="bold-16" style={{ marginBottom: '1rem' }}>Your results indicate a high GSM risk</h3>
-              It's important to take this seriously, but don't worry—we're here to support you. 
+              It&apos;s important to take this seriously, but don&apos;t worry—we&apos;re here to support you. 
               We recommend reaching out to your healthcare provider as soon as possible to discuss 
               your results and the best steps forward. With the right care and lifestyle adjustments, 
               you can manage this risk and have a healthy pregnancy.

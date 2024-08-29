@@ -76,19 +76,19 @@ const IntroStep = ({ nextStep }: FormStepProps) => {
     return (
         <>
             <h2 className="card-title text-3xl">
-                Let's explore your gestational health together
+                Let&apos;s explore your gestational health together
             </h2>
             <p className="regular-20">
             <span className="bold-purple">Gestational diabetes</span> is a type of diabetes 
-            that can happen during pregnancy, even if you've never had diabetes before. 
+            that can happen during pregnancy, even if you&apos;ve never had diabetes before. 
             Most women are checked for gestational diabetes <span className="bold-purple">between
                  24 and 28 weeks of pregnancy</span>, but some may need to be tested earlier. 
-                 Since this condition usually doesn’t cause any symptoms, testing is very 
+                 Since this condition usually doesn&apos;t cause any symptoms, testing is very 
                  important to keep you and your baby healthy.
             </p>
             <p className="regular-20">
-                In this quiz, we’ll help you understand more about your gestational health 
-                during pregnancy. Let's explore this journey together and give you the 
+                In this quiz, we&apos;ll help you understand more about your gestational health 
+                during pregnancy. Let&apos;s explore this journey together and give you the 
                 information you need to stay well!
             </p>
             <button className="btn btn-primary btn-lg btn-wide" onClick={nextStep}>
