@@ -18,7 +18,7 @@ const Accordion = (
   return (
     <div className={`rounded-full flex flex-col ${className}`}>
       <div
-      className='bold-20 xl:regular-22 mt-5 p-5 min-w-[300px] sm:w-[500px] md:w-[700px] lg:w-[800px] rounded-xl bg-purple-700 text-white cursor-pointer justify-center text-center'
+      className='bold-20 xl:regular-22 mt-5 p-5 min-w-[300px] sm:w-[500px] md:w-[700px] lg:w-[800px] rounded-xl bg-purple-500 text-white cursor-pointer justify-center text-center'
         onClick={toggleAccordion}>
         {title} 
         {/* <span className='flexEnd'>&#86;</span> */}

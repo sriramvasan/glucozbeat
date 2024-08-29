@@ -36,30 +36,52 @@ const UnderstandingGDM = () => {
       <h1 className='mx-8 px-8 '>Debunk the Rumors: Understanding GDM </h1>
       <p className='px-8 mx-8'> Let’s explore common myths about gestational diabetes and see what the data says.</p>
     </div>
-    <div className='flex min-w-[250px] h-[340px] gap-8 max-w-[734px] mx-auto justify-center items-center' >
-      <div className={`h-full w-full max-w-[1100px] bg-cover bg-no-repeat lg:rounded-r-5xl lg:rounded-l-5xl  2xl:rounded-5xl`}
-      style={{
-        backgroundImage: 'url(/priya-persona-4.jpg)' ,
-      }}
-      >
-       <div className="flex h-full flex-col items-start justify-between p-6 lg:px-20 lg:py-10">
-       <div className="flexCenter gap-4">
-          <div className="rounded-full bg-purple-300 p-4">
-            <Image
-              src = "/menu.svg"
-              alt = "map"
-              width={28}
-              height={28}
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-          <h4 className="bold-18 text-white">Meet Priya, a first-time mom in her early 30s.</h4>
-          <p className="regular-14 text-white">When Priya was diagnosed with GDM, She was worried she did something wrong—maybe she ate too much sugar? But is that really the cause?</p>
+    <section className='relative flex flex-col'>
+      <div className='flex min-w-[250px] h-[360px] gap-8 max-w-[734px] mx-auto justify-center items-center' >
+        <div className={`h-full w-full max-w-[1100px] bg-cover bg-no-repeat lg:rounded-r-5xl lg:rounded-l-5xl  2xl:rounded-5xl`}
+        style={{
+          backgroundImage: 'url(/priya-persona-4.jpg)' ,
+        }}
+        >
+        <div className="flex h-full flex-col items-start justify-end p-6 lg:px-20 lg:py-50">
+        <div className="flexEnd gap-4">
+            <div className="rounded-full bg-purple-300 p-4">
+              <Image
+                src = "/menu.svg"
+                alt = "map"
+                width={28}
+                height={28}
+              />
+            </div>
+            <div className='w-full bg-opacity-45'>
+            <div className="flex flex-col lg:gap-1 lg:w-2/3">
+            <h4 className="bold-16 text-white">Meet Priya, a first-time mom in her early 30s.</h4>
+            <p className="regular-12 text-white">When Priya was diagnosed with GDM, 
+              She was worried she did something wrong—maybe she ate too much sugar? But is that really the cause?</p>
+            </div>
+            </div>
           </div>
         </div>
-       </div>
+        </div>
       </div>
-    </div>
+      <div className="flexEnd mt-10 px-6 lg:-mt-60 lg:mr-6">
+          <div className="bg-purple-500 p-8 lg:max-w-[500px] xl:max-w-[734px] xl:rounded-5xl xl:px-16 xl:py-20 relative w-full overflow-hidden rounded-3xl">
+            <h2 className="regular-20 md:regular-28 2xl:regular-64 capitalize text-white">
+            Remember <strong>You're not alone</strong> 
+            </h2>
+            <p className="regular-14 xl:regular-16 mt-5 text-white">
+            Managing gestational diabetes can feel overwhelming, especially when faced with unfamiliar advice and conflicting information. That’s why we’re here—to guide you through every step of your journey with support, clarity, and culturally relevant resources
+            </p>
+            <Image 
+              src="/quote.svg"
+              alt="camp-2"
+              width={186}
+              height={219}
+              className="women-quote"
+            />
+          </div>
+        </div>
+    </section>
 
     <div className='m-5 p-5 '>
     {MythData.map((data) =>(
@@ -72,9 +94,9 @@ const UnderstandingGDM = () => {
     </div>
 
     <div className='p-5  mx-auto max-w-[1000px] justify-center text-justify'>
-      <h1>Relating Back to Priya’s Experience</h1>
+      <h2>Relating Back to Priya’s Experience</h2>
       <p className=''>For Priya, understanding that GDM isn’t her fault was a relief. She focused on simple steps like balanced meals and moderate exercise, which helped keep her and her baby healthy</p>
-      <p>Remember: You are not alone. Like Priya, you can take control of your GDM journey with the right knowledge and support. Explore our resources to find meal plans and exercises tailored to your needs.</p>
+      {/* <p>Remember: You are not alone. Like Priya, you can take control of your GDM journey with the right knowledge and support. Explore our resources to find meal plans and exercises tailored to your needs.</p> */}
     </div>
 
     <div className='px-5 mx-5'>
