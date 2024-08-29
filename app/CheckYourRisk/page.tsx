@@ -1,6 +1,12 @@
 "use client";
 
-import React, { ChangeEvent, ReactNode, useReducer, useRef, useState } from "react";
+import React, { 
+    ChangeEvent, 
+    ReactNode, 
+    useReducer, 
+    useRef, 
+    useState 
+} from "react";
 import { z } from "zod";
 import {
     RiskCalculatorAgeGroup,
@@ -205,7 +211,7 @@ const PlaceOfBirthStep = ({
                             className="ml-auto"
                             src="/asia-region-map.webp"
                             alt=""
-                            width={630}
+                            width={500}
                             height={384}
                         />
                     </div>
@@ -238,7 +244,7 @@ const WeightAndHeightStep = ({
                     Your weight and height help us calculate your Body Mass Index (BMI). A
                     higher BMI can increase the chance of developing diabetes.
                 </WhyDoesThisMatter>
-                <div className="join flex items-center justify-center mt-4">
+                <div className="px-8 flex flex-col lg:flex-row items-center justify-center mt-4 [&_input.grow]:max-w-32">
                     <label className="form-control relative">
                         <div className="input input-bordered flex items-center gap-2">
                             Weight
