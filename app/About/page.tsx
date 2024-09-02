@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const AboutPage = () => {
@@ -45,7 +46,8 @@ const AboutPage = () => {
 
                 {/* Images or other content */}
                 <div className="flex flex-col space-y-4">
-                    <img src="./TA40.jpg" alt="Team at Work" className="rounded-lg shadow-lg" />
+                <Image src="/TA40.jpg" width={600} height={600} alt='Team at work' className='rounded-lg shadow-lg'/>
+                    {/* <img src="./TA40.jpg" alt="Team at Work" className="rounded-lg shadow-lg" /> */}
                 </div>
             </section>
 
@@ -54,27 +56,32 @@ const AboutPage = () => {
                 <h2 className="text-3xl font-bold text-center mb-8">Meet Our Team</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                     <div className="text-center">
-                        <img src="./margaret.jpg" alt="Member 1" className="rounded-full w-34 h-40 mx-auto shadow-lg" />
+                        <Image src="/margaret.jpg" width={128} height={40} alt='Member 1' className='rounded-full mx-auto shadow-lg'/>
+                        {/* <img src="./margaret.jpg" alt="Member 1" className="rounded-full w-34 h-40 mx-auto shadow-lg" /> */}
                         <h3 className="mt-4 text-xl font-semibold">Margaret Tai</h3>
                         <p className="text-gray-600">MCS</p>
                     </div>
                     <div className="text-center">
-                        <img src="./nathan.jpg" alt="Member 2" className="rounded-full w-34 h-40 mx-auto shadow-lg" />
+                    <Image src="/nathan.jpg" alt='Member 2' width={128} height={40} className='rounded-full  mx-auto shadow-lg'/>
+                        {/* <img src="./nathan.jpg" alt="Member 2" className="rounded-full w-34 h-40 mx-auto shadow-lg" /> */}
                         <h3 className="mt-4 text-xl font-semibold">Nhan Nguyen</h3>
                         <p className="text-gray-600">MAI</p>
                     </div>
                     <div className="text-center">
-                        <img src="./ram.jpg" alt="Member 3" className="rounded-full w-34 h-40 mx-auto shadow-lg" />
+                    <Image src="/ram.jpg" alt='Member 3' width={128} height={40} className='rounded-full  mx-auto shadow-lg'/>
+                        {/* <img src="./ram.jpg" alt="Member 3" className="rounded-full w-34 h-40 mx-auto shadow-lg" /> */}
                         <h3 className="mt-4 text-xl font-semibold">Sriram Vasan</h3>
                         <p className="text-gray-600">MDS</p>
                     </div>
                     <div className="text-center">
-                        <img src="./susan.jpg" alt="Member 4" className="rounded-full w-34 h-40 mx-auto shadow-lg" />
+                    <Image src="/susan.jpg" alt='Member 4' width={128} height={40} className='rounded-full  mx-auto shadow-lg'/>
+                        {/* <img src="./susan.jpg" alt="Member 4" className="rounded-full w-34 h-40 mx-auto shadow-lg" /> */}
                         <h3 className="mt-4 text-xl font-semibold">Susan Yu</h3>
                         <p className="text-gray-600">MIT</p>
                     </div>
                     <div className="text-center">
-                        <img src="./Jacky.jpg" alt="Member 5" className="rounded-full w-34 h-40 mx-auto shadow-lg" />
+                    <Image src="/Jacky.jpg" alt='Member 5' width={128} height={40} className='rounded-full mx-auto shadow-lg'/>
+                        {/* <img src="./Jacky.jpg" alt="Member 5" className="rounded-full w-34 h-40 mx-auto shadow-lg" /> */}
                         <h3 className="mt-4 text-xl font-semibold">Zihao Dai</h3>
                         <p className="text-gray-600">MBIS</p>
                     </div>
