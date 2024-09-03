@@ -1,10 +1,10 @@
-import Women from "./Women/page";
+import Home from "./Home/page";
 
 
-export default function Home() {
+export default function App() {
   return (
     <>
-      <Women />
+      <Home/>
     </>
   );
 }

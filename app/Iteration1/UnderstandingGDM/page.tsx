@@ -1,11 +1,8 @@
 'use client';
 import React from 'react'
-import Accordion from '../Components/Accordian'
-import { ImageCard } from '../Components/ImageCard';
-import FlipCard from '../Components/FlipCard/FlipCard';
+import Accordion from '../../Components/Accordian'
 import { useState } from 'react';
 import Image from 'next/image';
-import Button from '../Components/Button';
 import { useRouter } from "next/navigation";
 
 const MythData = [
