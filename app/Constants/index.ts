@@ -9,12 +9,36 @@ export const NAV_LINKS = [
   { href: '/', key: 'about_us', label: 'About Us' },
 ];
 
-// WOMEN SECTION
-export const PEOPLE_URL = [
-  '/person-1.png',
-  '/person-2.png',
-  '/person-3.png',
-  '/person-4.png',
+// FEATURES SECTION
+export const FEATURES = [
+  {
+    title: 'Knowledge is Power',
+    icon: '/book.svg',
+    variant: 'green',
+    description:
+      'Managing gestational diabetes mellitus (GDM) starts with understanding what it is and how it impacts your body. We break down complex medical jargon into simple language',
+  },
+  {
+    title: 'Quick Assessment',
+    icon: '/heart.svg',
+    variant: 'green',
+    description:
+      'Your health is unique, and so are your needs. Take a personalized assessment to gauge your well-being throughout your pregnancy. This easy-to-use tool evaluates your risk for GDM and offers tailored advice',
+  },
+  {
+    title: 'Know Your Food at a Glance',
+    icon: '/food.svg',
+    variant: 'green',
+    description:
+      'Confused about which foods are safe to eat? Simply snap a picture! Our innovative image recognition technology identifies the foods on your plate and provides their glycemic index (GI) values instantly',
+  },
+  {
+    title: 'Swap for Better Choices',
+    icon: '/swap.svg',
+    variant: 'orange',
+    description:
+      'Eating well with GDM doesn’t mean giving up the foods you love. Search for low-GI alternatives to your favourite high-GI foods. Whether you are craving rice, bread, or a sweet treat, there are healthier, diabetes-friendly options',
+  },
 ];
 
 // FOOTER SECTION

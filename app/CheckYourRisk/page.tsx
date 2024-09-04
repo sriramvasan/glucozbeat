@@ -142,7 +142,7 @@ const AgeGroupStep = ({
                                         e.target.value as keyof typeof RiskCalculatorAgeGroup
                                         ]
                                     );
-                                    setTimeout(nextStep, 800);
+                                    // setTimeout(nextStep, 800);
                                 }}
                             />
                         ))}
@@ -199,7 +199,7 @@ const PlaceOfBirthStep = ({
                                                     .value as keyof typeof RiskCalculatorPlaceOfBirth
                                                 ]
                                             );
-                                            setTimeout(nextStep, 800);
+                                            // setTimeout(nextStep, 800);
                                         }}
                                     />
                                 ))}
@@ -344,7 +344,7 @@ const FamilyHistoryStep = ({
                         checked={formData.familyHistory === true}
                         onChange={(e) => {
                             updateFormData("familyHistory", true);
-                            setTimeout(nextStep, 500);
+                            // setTimeout(nextStep, 500);
                         }}
                     />
                     <input
@@ -356,7 +356,7 @@ const FamilyHistoryStep = ({
                         checked={formData.familyHistory === false}
                         onChange={(e) => {
                             updateFormData("familyHistory", false);
-                            setTimeout(nextStep, 500);
+                            // setTimeout(nextStep, 500);
                         }}
                     />
                 </form>
@@ -396,7 +396,7 @@ const AddictionsStep = ({
                         checked={formData.addictions === true}
                         onChange={(e) => {
                             updateFormData("addictions", true);
-                            setTimeout(nextStep, 500);
+                            // setTimeout(nextStep, 500);
                         }}
                     />
                     <input
@@ -408,7 +408,7 @@ const AddictionsStep = ({
                         checked={formData.addictions === false}
                         onChange={(e) => {
                             updateFormData("addictions", false);
-                            setTimeout(nextStep, 500);
+                            // setTimeout(nextStep, 500);
                         }}
                     />
                 </form>

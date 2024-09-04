@@ -25,9 +25,9 @@ const Navbar = () => {
           <li><Link href='/Home' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Home</Link></li>
           <li><Link href='/UnderstandingGDM' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Understand GDM</Link></li>
           <li><Link href='/CheckYourRisk' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Wellness Check</Link></li>
-          {/* <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Find healthy foods</Link></li>
-          <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Explore recipes</Link></li> */}
-          <li><Link href='/About' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Meet the team</Link></li>
+          <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Snap GI</Link></li>
+          <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Food Flip</Link></li>
+          {/* <li><Link href='/About' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Meet the team</Link></li> */}
         </ul>
 
         {/* <div className="lg:flexCenter hidden">
@@ -83,27 +83,27 @@ const Navbar = () => {
                 Wellness Check
               </li>
             </Link>
-            {/* <Link href="/">
+            <Link href="/">
               <li
                 onClick={() => setMenuOpen(false)}
                 className="py-4 cursor-pointer">
-                Find Healthy Foods
+                Snap GI
               </li>
             </Link>
             <Link href="/">
               <li
                 onClick={() => setMenuOpen(false)}
                 className="py-4 cursor-pointer">
-                Explore receipes
+                Food Flip
               </li>
-            </Link> */}
-            <Link href="/">
+            </Link>
+            {/* <Link href="/">
               <li
                 onClick={() => setMenuOpen(false)}
                 className="py-4 cursor-pointer">
                 Meet the team
               </li>
-            </Link>
+            </Link> */}
           </ul>
         </div>
       </div>
