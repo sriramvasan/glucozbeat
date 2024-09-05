@@ -11,7 +11,7 @@ interface ImageCardProps {
 export const ImageCard = ({ backgroundImage, title, subtitle, src }: ImageCardProps) => {
     return (
         <div
-            className={`h-full w-full min-w-[1100px] ${backgroundImage} bg-cover bg-no-repeat lg:rounded-r-5xl 2xl:rounded-5xl`}
+            className={`h-full w-full min-w-[100dvw] lg:min-w-[1100px] ${backgroundImage} bg-cover bg-center bg-no-repeat lg:rounded-5xl`}
             style={{
                 backgroundImage: `url(${backgroundImage})`,
             }}

@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full h-18 shadow-xl bg-white z-40">
+    <nav className="sticky top-0 w-full h-18 shadow-xl bg-white z-40">
       <div className="flexBetween max-container padding-container relative py-3">
         <Link href="/">
           <Image src="/glucozbeat-logo.svg" alt="logo" width={150} height={29} />

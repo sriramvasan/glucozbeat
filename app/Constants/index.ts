@@ -17,6 +17,8 @@ export const FEATURES = [
     variant: 'green',
     description:
       'Managing gestational diabetes mellitus (GDM) starts with understanding what it is and how it impacts your body. We break down complex medical jargon into simple language',
+    link: "/UnderstandingGDM",
+    label: "Get the Facts",
   },
   {
     title: 'Quick Assessment',
@@ -24,6 +26,8 @@ export const FEATURES = [
     variant: 'green',
     description:
       'Your health is unique, and so are your needs. Take a personalized assessment to gauge your well-being throughout your pregnancy. This easy-to-use tool evaluates your risk for GDM and offers tailored advice',
+    link: "/CheckYourRisk",
+    label: "Assess My Health"
   },
   {
     title: 'Know Your Food at a Glance',
@@ -31,6 +35,8 @@ export const FEATURES = [
     variant: 'green',
     description:
       'Confused about which foods are safe to eat? Simply snap a picture! Our innovative image recognition technology identifies the foods on your plate and provides their glycemic index (GI) values instantly',
+    link: "",
+    label: "Snap My Food"
   },
   {
     title: 'Swap for Better Choices',
@@ -38,6 +44,8 @@ export const FEATURES = [
     variant: 'orange',
     description:
       'Eating well with GDM doesn’t mean giving up the foods you love. Search for low-GI alternatives to your favourite high-GI foods. Whether you are craving rice, bread, or a sweet treat, there are healthier, diabetes-friendly options',
+    link: "",
+    label: "Swap for Better"
   },
 ];
 
