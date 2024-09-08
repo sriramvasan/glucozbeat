@@ -185,10 +185,10 @@ const UnderstandingGDM = () => {
               height={219}
               className="women-quote"
             />
-            <button className='px-auto my-2 mx-auto mb-2 bg-purple-600 max-w-[175px] justify-center items-center text-center text-white rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105'
+            <button className='px-auto my-2 mx-auto mb-2 bg-purple-600 max-w-[250px] justify-center items-center text-center text-white rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105'
             onClick={handleClick}>
-              <div className='py-3 mx-3 my-auto py-auto'>
-                Understand Better
+              <div className=' flex py-3 mx-3 my-auto py-auto items-center justify-center'>
+                <Image src='/quiz.svg' width={50} height={50} alt='QUIZ' />Understand Better
               </div>
             </button>
     </div>
