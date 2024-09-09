@@ -37,7 +37,7 @@ const Home = () => {
               <ImageCard
                 backgroundImage="/homepage-bg-2.jpg"
                 title="Snap It, Know It"
-                subtitle="Personalized GDM Resources"
+                subtitle="Swap your food for better choices"
                 src="/folded-map.svg"
               />
             </div>
