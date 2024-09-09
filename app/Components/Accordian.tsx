@@ -6,11 +6,12 @@ interface accordionItem{
     title: String, 
     content: any,
     className : string,
-    img : string
+    img : string,
+    visual? : any
 }
 
 const Accordion = ( 
-  {title , content, className, img}: accordionItem ) => {
+  {title , content, className, img, visual}: accordionItem ) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
@@ -34,6 +35,7 @@ const Accordion = (
         className='regular-14 min-w-[250px] xl:regular-16 mx-5 p-5 rounded-xl shadow-md'
         >
           {content}
+          <div className='flex p-auto mx-auto justify-center align-middle items-center'>{visual}</div>
         </div>
       )}
     </div>
