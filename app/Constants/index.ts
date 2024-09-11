@@ -21,7 +21,7 @@ export const FEATURES = [
     label: "Get the Facts",
   },
   {
-    title: 'Quick Assessment',
+    title: 'Quick Health Assessment',
     icon: '/heart.svg',
     variant: 'green',
     description:

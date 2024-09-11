@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <>
-      <section className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20">
+      <section className="2xl:max-container relative flex flex-col mt-10">
         <div className="relative h-[340px] lg:h-[400px] xl:h-[640px]">
           <div className="carousel w-full space-x-8 h-full -mt-20 *:pt-20">
             <div id="slide1" className="carousel-item">
@@ -61,18 +61,26 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flexEnd mt-10 px-6 lg:-mt-60 lg:mr-6">
-          <div className="bg-purple-700 p-8 lg:max-w-[500px] xl:max-w-[734px] xl:rounded-5xl xl:px-16 xl:py-20 relative w-full overflow-hidden rounded-3xl">
-            <h2 className="regular-24 md:regular-32 2xl:regular-64 capitalize text-white">
+        <div className="w-full mt-10 px-6 lg:-mt-60 lg:mr-6">
+          <div className="bg-purple-700 p-8 xl:rounded-5xl xl:px-12 xl:py-12 relative w-full overflow-hidden rounded-3xl">
+            <h2 className="text-3xl md:text-4xl 2xl:text-5xl tracking-tight font-normal capitalize text-white">
               Ready to Start on{" "}
               <strong>Your Gestational Diabetes Mellitus (GDM) Journey?</strong>
             </h2>
-            <p className="regular-14 xl:regular-16 mt-5 text-white">
-              Managing gestational diabetes can feel overwhelming, especially
-              when faced with unfamiliar advice and conflicting information.
-              That’s why we’re here—to guide you through every step of your
-              journey with support, clarity, and culturally relevant resources
-            </p>
+            <div className="w-full mt-5">
+              <p className="text-lg leading-8 text-white w-full">
+                Managing gestational diabetes can feel overwhelming 
+                <span className="hidden sm:inline">, especially when faced with unfamiliar advice and conflicting information</span>
+                . That’s why we’re here—to guide you through every step of your journey 
+                <span className="hidden sm:inline"> with support, clarity, and culturally relevant resources</span>
+              </p>
+              <div className="flex mt-4">
+                <a href="#features-section" className="btn">
+                  Find Out More
+                </a>
+              </div>
+            </div>
+
             <Image
               src="/quote.svg"
               alt="camp-2"
@@ -84,29 +92,41 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="flexCenter flex-col">
-        <div className="padding-container max-container w-full pb-24">
-          <Image src="/prenancy.svg" alt="camp" width={50} height={50} />
-          <p className="uppercase regular-18 -mt-1 mb-3 text-primary">
-          We are here for you
-          </p>
-          <div className="flex flex-wrap justify-between gap-5 lg:gap-10">
-            <h2 className="bold-40 lg:bold-64 xl:max-w-[390px]">
-            Simplifying GDM, One Step at a Time
-            </h2>
-            <p className="regular-16 text-gray-30 xl:max-w-[520px]">
-              At Glucoz, our mission is to simplify the journey of managing
-              gestational diabetes mellitus (GDM) for South Asian women. We
-              understand the challenges that come with navigating complex health
-              information, especially during pregnancy. This easy-to-use platform is designed
-              to help you take charge of your health with confidence.
-            </p>
+      <section className="overflow-hidden py-8 sm:py-12">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            <div className="lg:pr-8 lg:pt-4">
+              <div className="lg:max-w-lg">
+                <Image src="/prenancy.svg" alt="camp" width={50} height={50} />
+                <h2 className="uppercase text-lg font-semibold leading-7 text-primary">
+                  We are here for you
+                </h2>
+                <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                  Simplifying GDM,
+                  <br />
+                  One Step at a Time
+                </p>
+              </div>
+            </div>
+            <div className="flex items-end">
+              <p className="text-lg leading-7 text-gray-600">
+                At Glucoz, our mission is to simplify the journey of managing
+                gestational diabetes mellitus (GDM) for South Asian women. We
+                understand the challenges that come with navigating complex
+                health information, especially during pregnancy. This
+                easy-to-use platform is designed to help you take charge of your
+                health with confidence.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="flex-col flexCenter overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24">
-        <div className="max-container padding-container relative w-full flex justify-end">
+      <section
+        id="features-section"
+        className="flex-col flexCenter overflow-hidden bg-feature-bg bg-center bg-no-repeat py-8 sm:py-12"
+      >
+        <div className="max-container px-6 relative w-full flex justify-end">
           <div className="relative flex flex-1 items-center">
             <Image
               src="/pregnant-3.jpg"
@@ -128,7 +148,7 @@ const Home = () => {
               />
               <h2 className="bold-40 lg:bold-64">Our Features</h2>
             </div>
-            <ul className="mt-10 grid gap-10 md:grid-cols-2 lg:mg-20 lg:gap-20">
+            <ul className="mt-10 grid gap-10 md:grid-cols-2 lg:mg-20 lg:gap-12">
               {FEATURES.map((feature) => (
                 <FeatureItem
                   key={feature.title}
