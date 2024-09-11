@@ -64,7 +64,7 @@ const Home = () => {
         <div className="flexEnd mt-10 px-6 lg:-mt-60 lg:mr-6">
           <div className="bg-purple-700 p-8 lg:max-w-[500px] xl:max-w-[734px] xl:rounded-5xl xl:px-16 xl:py-20 relative w-full overflow-hidden rounded-3xl">
             <h2 className="regular-24 md:regular-32 2xl:regular-64 capitalize text-white">
-              Unsure Where to Start on{" "}
+              Ready to Start on{" "}
               <strong>Your Gestational Diabetes Mellitus (GDM) Journey?</strong>
             </h2>
             <p className="regular-14 xl:regular-16 mt-5 text-white">
@@ -88,19 +88,18 @@ const Home = () => {
         <div className="padding-container max-container w-full pb-24">
           <Image src="/prenancy.svg" alt="camp" width={50} height={50} />
           <p className="uppercase regular-18 -mt-1 mb-3 text-primary">
-            We are here for you
+          We are here for you
           </p>
           <div className="flex flex-wrap justify-between gap-5 lg:gap-10">
             <h2 className="bold-40 lg:bold-64 xl:max-w-[390px]">
-              Guide You to Easy Path
+            Simplifying GDM, One Step at a Time
             </h2>
             <p className="regular-16 text-gray-30 xl:max-w-[520px]">
               At Glucoz, our mission is to simplify the journey of managing
               gestational diabetes mellitus (GDM) for South Asian women. We
               understand the challenges that come with navigating complex health
-              information, especially during pregnancy. That’s why we&apos;ve
-              created a comprehensive, user-friendly platform that empowers you
-              to take control of your health.
+              information, especially during pregnancy. This easy-to-use platform is designed
+              to help you take charge of your health with confidence.
             </p>
           </div>
         </div>
