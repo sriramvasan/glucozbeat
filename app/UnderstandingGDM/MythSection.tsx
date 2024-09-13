@@ -136,7 +136,7 @@ const MythSection = () => {
         </>
       ),
       image: "/bigbaby.svg",
-      visual: <img src="/bigbaby_visual.svg" alt="Big Baby Visual" />  // Different visual for big babies myth
+      visual: <Image src="/bigbaby_visual.svg" width={100} height={100} alt="Big Baby Visual" />  // Different visual for big babies myth
     },
     {
       id: 4,
