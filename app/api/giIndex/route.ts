@@ -15,7 +15,7 @@ export async function GET(request: Request) {
   try {
     console.log(foodName)
     // const [rows] = await connection.execute('SELECT * FROM giindex;');
-    const [rows] = await connection.execute( "SELECT * FROM giindex WHERE `Food Names` LIKE ?",[`%${foodName}%`]);
+    const [rows] = await connection.execute( "SELECT distinct Foods, Glycemic_Index, Category, GI_class FROM giindex WHERE Foods LIKE ?",[`%${foodName}%`]);
     await connection.end();
     return NextResponse.json(rows);
   } catch (error) {
