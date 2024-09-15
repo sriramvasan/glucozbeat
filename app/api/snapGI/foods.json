@@ -1,0 +1,454 @@
+{
+    "foods": [
+        {
+            "food": "hot-dog",
+            "glycemic_index": "N/A",
+            "description": "Processed meat high in sodium and unhealthy fats, consumption should be limited for heart health."
+        },
+        {
+            "food": "Apple",
+            "glycemic_index": 36,
+            "description": "Low GI fruit rich in fiber and antioxidants, supports digestion and heart health."
+        },
+        {
+            "food": "Artichoke",
+            "glycemic_index": "N/A",
+            "description": "Low in calories and high in fiber, artichokes support liver health and digestion."
+        },
+        {
+            "food": "Asparagus",
+            "glycemic_index": 15,
+            "description": "Low GI vegetable with anti-inflammatory properties, rich in folate and vitamin K."
+        },
+        {
+            "food": "Bagel",
+            "glycemic_index": 72,
+            "description": "High GI food, often refined and can cause spikes in blood sugar. Limit for better blood sugar control."
+        },
+        {
+            "food": "Baked-goods",
+            "glycemic_index": "Varies",
+            "description": "Often high in sugar and refined flour, linked to weight gain and poor blood sugar control."
+        },
+        {
+            "food": "Banana",
+            "glycemic_index": 51,
+            "description": "Medium GI fruit, provides potassium and fiber, beneficial in moderation for energy and digestion."
+        },
+        {
+            "food": "Beer",
+            "glycemic_index": "N/A",
+            "description": "Alcoholic drink that can affect blood sugar levels; moderate consumption is advised."
+        },
+        {
+            "food": "Bell-pepper",
+            "glycemic_index": 15,
+            "description": "Low GI vegetable, rich in vitamin C and antioxidants, supports immune function."
+        },
+        {
+            "food": "Bread",
+            "glycemic_index": 70,
+            "description": "Typically high GI, especially white bread; opt for whole grains for better blood sugar control."
+        },
+        {
+            "food": "Broccoli",
+            "glycemic_index": 10,
+            "description": "Very low GI vegetable, rich in fiber, vitamins, and antioxidants, promotes heart and gut health."
+        },
+        {
+            "food": "Burrito",
+            "glycemic_index": "Varies",
+            "description": "Can be high in calories, sodium, and unhealthy fats depending on ingredients."
+        },
+        {
+            "food": "Cabbage",
+            "glycemic_index": 10,
+            "description": "Very low GI, nutrient-dense, supports digestion and provides anti-inflammatory benefits."
+        },
+        {
+            "food": "Cake",
+            "glycemic_index": "Varies",
+            "description": "Typically high in sugar and refined carbs, can cause spikes in blood sugar. Best consumed occasionally."
+        },
+        {
+            "food": "Candy",
+            "glycemic_index": "Varies",
+            "description": "High in sugar, often causes quick spikes in blood sugar. Should be limited."
+        },
+        {
+            "food": "Cantaloupe",
+            "glycemic_index": 65,
+            "description": "Medium GI fruit, provides hydration and vitamin C but should be consumed in moderation for blood sugar control."
+        },
+        {
+            "food": "Carrot",
+            "glycemic_index": 47,
+            "description": "Medium GI vegetable, good source of vitamin A, beneficial for eye health."
+        },
+        {
+            "food": "Common-fig",
+            "glycemic_index": 61,
+            "description": "Medium GI fruit, high in fiber, can be beneficial for digestion but should be consumed in moderation."
+        },
+        {
+            "food": "Cookie",
+            "glycemic_index": "Varies",
+            "description": "Usually high in sugar and refined flour, can spike blood sugar levels. Best consumed occasionally."
+        },
+        {
+            "food": "Dessert",
+            "glycemic_index": "Varies",
+            "description": "Generally high in sugar and fat, can contribute to weight gain and poor blood sugar control."
+        },
+        {
+            "food": "French-fries",
+            "glycemic_index": 75,
+            "description": "High GI, fried in unhealthy oils, contributing to poor heart health and blood sugar spikes."
+        },
+        {
+            "food": "Grape",
+            "glycemic_index": 59,
+            "description": "Medium GI fruit, high in antioxidants but should be eaten in moderation to avoid sugar spikes."
+        },
+        {
+            "food": "Guacamole",
+            "glycemic_index": "N/A",
+            "description": "Healthy fat-rich dip made from avocados, supports heart health and is low in carbs."
+        },
+        {
+            "food": "Ice-cream",
+            "glycemic_index": 57,
+            "description": "Moderate GI, high in sugars and fats. Best consumed occasionally."
+        },
+        {
+            "food": "Muffin",
+            "glycemic_index": "Varies",
+            "description": "Usually high in refined flour and sugar, can cause spikes in blood sugar."
+        },
+        {
+            "food": "Orange",
+            "glycemic_index": 43,
+            "description": "Low GI fruit, rich in vitamin C and fiber, supports immune and digestive health."
+        },
+        {
+            "food": "Pancake",
+            "glycemic_index": 67,
+            "description": "High GI, often made with refined flour. Can lead to blood sugar spikes."
+        },
+        {
+            "food": "Pear",
+            "glycemic_index": 38,
+            "description": "Low GI fruit, rich in fiber, helps with digestion and blood sugar regulation."
+        },
+        {
+            "food": "Popcorn",
+            "glycemic_index": 55,
+            "description": "Medium GI snack, high in fiber, but can be unhealthy if loaded with butter or salt."
+        },
+        {
+            "food": "Pretzel",
+            "glycemic_index": 83,
+            "description": "High GI snack, can cause blood sugar spikes. Best consumed occasionally."
+        },
+        {
+            "food": "Strawberry",
+            "glycemic_index": 41,
+            "description": "Low GI fruit, rich in antioxidants and vitamin C, supports heart health."
+        },
+        {
+            "food": "Tomato",
+            "glycemic_index": 15,
+            "description": "Low GI vegetable, rich in vitamins and antioxidants, supports heart health."
+        },
+        {
+            "food": "Waffle",
+            "glycemic_index": 76,
+            "description": "High GI, often made with refined flour, can cause blood sugar spikes."
+        },
+        {
+            "food": "Cheese",
+            "glycemic_index": "N/A",
+            "description": "Low in carbs but high in fat. Can be part of a healthy diet in moderation."
+        },
+        {
+            "food": "Cocktail",
+            "glycemic_index": "N/A",
+            "description": "Alcoholic drink that may contain high sugar; moderation is important."
+        },
+        {
+            "food": "Coffee",
+            "glycemic_index": "N/A",
+            "description": "Low-calorie beverage that provides antioxidants, but can increase anxiety in excess."
+        },
+        {
+            "food": "Cooking-spray",
+            "glycemic_index": "N/A",
+            "description": "Typically calorie-free and used to reduce cooking oil consumption."
+        },
+        {
+            "food": "Crab",
+            "glycemic_index": "N/A",
+            "description": "Low-carb, high-protein seafood, provides essential minerals like zinc."
+        },
+        {
+            "food": "Croissant",
+            "glycemic_index": 67,
+            "description": "High GI pastry, rich in butter and refined flour, best eaten occasionally."
+        },
+        {
+            "food": "Cucumber",
+            "glycemic_index": 15,
+            "description": "Low GI vegetable, high in water content, supports hydration and digestion."
+        },
+        {
+            "food": "Doughnut",
+            "glycemic_index": 76,
+            "description": "High GI, high in sugar and fats, can cause rapid blood sugar spikes."
+        },
+        {
+            "food": "Egg",
+            "glycemic_index": "N/A",
+            "description": "Low-carb, high-protein food, supports muscle repair and overall health."
+        },
+        {
+            "food": "Fruit",
+            "glycemic_index": "Varies",
+            "description": "Depends on the type, generally rich in vitamins and fiber, supports digestion and health."
+        },
+        {
+            "food": "Grapefruit",
+            "glycemic_index": 25,
+            "description": "Low GI fruit, rich in vitamin C, supports immunity and weight management."
+        },
+        {
+            "food": "Hamburger",
+            "glycemic_index": "Varies",
+            "description": "Can be high in unhealthy fats and refined carbs, depending on ingredients."
+        },
+        {
+            "food": "Honeycomb",
+            "glycemic_index": "N/A",
+            "description": "High in sugar, should be consumed in moderation."
+        },
+        {
+            "food": "Hot-dog",
+            "glycemic_index": "N/A",
+            "description": "Processed meat high in sodium and unhealthy fats. Consumption should be limited for heart health."
+        },
+        {
+            "food": "food-drinks",
+            "glycemic_index": "Varies",
+            "description": "General category, glycemic index varies depending on the drink. Be mindful of sugars and additives."
+        },
+        {
+            "food": "Juice",
+            "glycemic_index": "Varies",
+            "description": "GI varies based on fruit content. Often high in sugar, consume in moderation to avoid blood sugar spikes."
+        },
+        {
+            "food": "Lemon",
+            "glycemic_index": 20,
+            "description": "Low GI fruit, rich in vitamin C and antioxidants, supports immune health and digestion."
+        },
+        {
+            "food": "Lobster",
+            "glycemic_index": "N/A",
+            "description": "Low-carb, high-protein seafood, beneficial for muscle repair and providing essential minerals."
+        },
+        {
+            "food": "Mango",
+            "glycemic_index": 60,
+            "description": "Medium GI fruit, high in vitamins A and C. Consume in moderation to manage blood sugar levels."
+        },
+        {
+            "food": "Milk",
+            "glycemic_index": 31,
+            "description": "Low GI beverage, provides calcium and protein. Opt for unsweetened varieties to avoid added sugars."
+        },
+        {
+            "food": "Mushroom",
+            "glycemic_index": 10,
+            "description": "Very low GI, rich in nutrients and antioxidants, supports immune and heart health."
+        },
+        {
+            "food": "Oyster",
+            "glycemic_index": "N/A",
+            "description": "Low-carb, high in zinc and other minerals, supports immune function and overall health."
+        },
+        {
+            "food": "Pasta",
+            "glycemic_index": "Varies",
+            "description": "GI depends on type and preparation. Whole grain varieties have lower GI and better blood sugar control."
+        },
+        {
+            "food": "Pastry",
+            "glycemic_index": "Varies",
+            "description": "Often high in refined flour and sugar, leading to quick blood sugar spikes. Best consumed occasionally."
+        },
+        {
+            "food": "Peach",
+            "glycemic_index": 42,
+            "description": "Low GI fruit, rich in vitamins A and C, beneficial for digestion and skin health."
+        },
+        {
+            "food": "Pineapple",
+            "glycemic_index": 66,
+            "description": "Medium GI fruit, high in vitamins and digestive enzymes, consume in moderation to manage blood sugar levels."
+        },
+        {
+            "food": "Pizza",
+            "glycemic_index": "Varies",
+            "description": "GI varies based on toppings and crust. Generally high in refined carbs and fats, best enjoyed in moderation."
+        },
+        {
+            "food": "Pomegranate",
+            "glycemic_index": 53,
+            "description": "Medium GI fruit, rich in antioxidants and vitamins, supports heart health and has anti-inflammatory benefits."
+        },
+        {
+            "food": "Potato",
+            "glycemic_index": 78,
+            "description": "High GI, can cause rapid spikes in blood sugar. Opt for smaller portions or alternatives like sweet potatoes."
+        },
+        {
+            "food": "Pumpkin",
+            "glycemic_index": 75,
+            "description": "Medium to high GI, rich in vitamins and fiber, beneficial in moderate amounts."
+        },
+        {
+            "food": "Radish",
+            "glycemic_index": 15,
+            "description": "Low GI vegetable, low in calories, supports digestion and provides vitamin C."
+        },
+        {
+            "food": "Salad",
+            "glycemic_index": "Varies",
+            "description": "GI depends on ingredients. Generally low GI if focused on vegetables; be cautious with high-fat dressings."
+        },
+        {
+            "food": "food",
+            "glycemic_index": "Varies",
+            "description": "General category, glycemic index depends on specific food items."
+        },
+        {
+            "food": "Sandwich",
+            "glycemic_index": "Varies",
+            "description": "GI varies depending on bread and fillings. Opt for whole-grain breads and healthy fillings."
+        },
+        {
+            "food": "Shrimp",
+            "glycemic_index": "N/A",
+            "description": "Low-carb, high-protein seafood, supports muscle health and is low in calories."
+        },
+        {
+            "food": "Squash",
+            "glycemic_index": 75,
+            "description": "Medium to high GI, provides vitamins and fiber, consume in moderation."
+        },
+        {
+            "food": "Squid",
+            "glycemic_index": "N/A",
+            "description": "Low-carb, high-protein seafood, rich in nutrients and supports overall health."
+        },
+        {
+            "food": "Submarine-sandwich",
+            "glycemic_index": "Varies",
+            "description": "GI depends on bread and fillings. Choose whole-grain breads and balanced fillings for better health."
+        },
+        {
+            "food": "Sushi",
+            "glycemic_index": "Varies",
+            "description": "GI varies with ingredients. Sushi rice is often high GI, so balance with non-starchy vegetables."
+        },
+        {
+            "food": "Taco",
+            "glycemic_index": "Varies",
+            "description": "GI depends on shell and fillings. Opt for whole-grain tortillas and healthy fillings for better health."
+        },
+        {
+            "food": "Tart",
+            "glycemic_index": "Varies",
+            "description": "Usually high in refined flour and sugar. Consume in moderation to avoid blood sugar spikes."
+        },
+        {
+            "food": "Tea",
+            "glycemic_index": "N/A",
+            "description": "Generally low-calorie and contains antioxidants. Avoid excessive sugar or high-calorie additives."
+        },
+        {
+            "food": "Vegetable",
+            "glycemic_index": "Varies",
+            "description": "Generally low GI, rich in vitamins and minerals. A key component of a balanced diet."
+        },
+        {
+            "food": "Watermelon",
+            "glycemic_index": 72,
+            "description": "High GI fruit, provides hydration and vitamins but should be consumed in moderation."
+        },
+        {
+            "food": "Wine",
+            "glycemic_index": "N/A",
+            "description": "Alcoholic beverage, impacts blood sugar differently. Moderate consumption is advised."
+        },
+        {
+            "food": "Winter-melon",
+            "glycemic_index": 72,
+            "description": "Medium to high GI, low in calories, provides hydration and nutrients, consume in moderation."
+        },
+        {
+            "food": "Zucchini",
+            "glycemic_index": 15,
+            "description": "Very low GI vegetable, low in calories and provides vitamins and antioxidants."
+        },
+        {
+            "food": "Banh_mi",
+            "glycemic_index": "Varies",
+            "description": "GI depends on bread and fillings. Typically high in refined carbs; balance with vegetables and lean proteins."
+        },
+        {
+            "food": "Banh_trang_tron",
+            "glycemic_index": "N/A",
+            "description": "Vietnamese snack, GI not well-documented. Consumption should be balanced with other healthy foods."
+        },
+        {
+            "food": "Banh_xeo",
+            "glycemic_index": "N/A",
+            "description": "Vietnamese savory pancake, GI varies. Typically high in refined flour; balance with vegetables."
+        },
+        {
+            "food": "Bun_bo_Hue",
+            "glycemic_index": "N/A",
+            "description": "Vietnamese noodle soup, GI depends on ingredients. Opt for healthier versions with more vegetables."
+        },
+        {
+            "food": "Bun_dau",
+            "glycemic_index": "N/A",
+            "description": "Vietnamese dish, GI varies with ingredients. Consume in moderation and balance with vegetables."
+        },
+        {
+            "food": "Com_tam",
+            "glycemic_index": "N/A",
+            "description": "Vietnamese broken rice dish, GI depends on preparation. Choose lean proteins and plenty of vegetables."
+        },
+        {
+            "food": "Goi_cuon",
+            "glycemic_index": "N/A",
+            "description": "Vietnamese fresh spring rolls, generally low GI if made with fresh ingredients and lean proteins."
+        },
+        {
+            "food": "Pho",
+            "glycemic_index": "Varies",
+            "description": "Vietnamese noodle soup, GI depends on broth and noodles. Opt for less fatty versions and add vegetables."
+        },
+        {
+            "food": "Hu_tieu",
+            "glycemic_index": "N/A",
+            "description": "Vietnamese noodle soup, GI varies with preparation. Choose lean proteins and vegetables for a healthier option."
+        },
+        {
+            "food": "Xoi",
+            "glycemic_index": "N/A",
+            "description": "Vietnamese sticky rice dish, GI varies with ingredients. Balance with vegetables and lean proteins."
+        }
+    ]
+}
