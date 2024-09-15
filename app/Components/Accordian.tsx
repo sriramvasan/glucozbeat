@@ -6,7 +6,7 @@ interface accordionItem{
     title: String, 
     content: any,
     className : string,
-    img : string,
+    img? : any,
     visual? : any
 }
 
@@ -42,26 +42,5 @@ const Accordion = (
   );
 };
 
-
-{/*const Accordion = () => {
-  return (
-    <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto' }}>
-      <AccordionItem
-        title="Myth 1: Eating too much sugar causes GDM."
-        content="Explanation and data visualizations to debunk this myth."
-      />
-      <AccordionItem
-        title="Myth 2: XX"
-        content="Content for Myth 2."
-      />
-      <AccordionItem
-        title="Myth 3: XX"
-        content="Content for Myth 3."
-      />
-      
-    </div>
-  );
-};
-*/}
 
 export default Accordion;
