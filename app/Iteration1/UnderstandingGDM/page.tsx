@@ -1,17 +1,34 @@
 'use client';
 import React from 'react'
-import Accordion from '../Components/Accordian'
-import { useState, useEffect } from 'react';
+import Accordion from '../../Components/Accordian'
+import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
-import MythSection from './MythSection';
+
+const MythData = [
+  { 
+      id: 1,
+      title : "Eating too much sugar causes GDM?",
+      content: "Yes, diet matters, but GDM isn’t just about what you eat—it’s influenced by things like genetics, age, and hormones. It’s a common myth that eating sugar alone causes GDM. The real issue is more about overall energy balance and weight gain during pregnancy, not specific foods. So while it’s important to watch your carbs, they aren’t the enemy—it’s about finding the right balance that works for you."
+  },
+  {   
+      id: 2, 
+      title : "I will need insulin to manage my gestational diabetes?",
+      content: "Don't worry, most women with gestational diabetes don’t need insulin. The first step is usually making small changes to your diet and getting some regular exercise, which can often keep your blood sugar in check. Your body is already working hard to produce more insulin during pregnancy, and these tweaks can help it do its job. Insulin can be a great tool if needed, but for most women, it’s not necessary—only about 10-20% actually end up needing it."
+  },
+  {
+    id: 3,
+    title : "All women with GDM will have big babies?",
+    content: "Having a big baby is a concern with GDM, but it’s not a given. The risk comes from higher blood sugar levels passing from mom to baby, leading to extra fat storage in the baby. But the good news is, by keeping your blood sugar in check through diet and exercise, you can greatly lower the chances of having a large baby. It’s all about managing those sugar levels, and with the right plan, you can have a healthy pregnancy and baby."
+  },
+  {
+    id:4,
+    title : "All women who develop GDM will have permanent diabetes following childbirth?",
+    content: "The development of GDM during pregnancy is often resolved as the blood-glucose levels regulate in the body, providing lower insulin resistance, and return glucose to normal levels. This can be monitored in screening. And, it is not certain, if not likely, that the woman will have a permanent diagnosis of diabetes; although immediate management during GDM, good diet, minimal excess weight, monitored signs of any health problems, active lifestyle and detecting prediabetes if present, will lower the associated risk with future Type-2 Diabetes diagnosis."
+  }
+]
 
 
-interface GDMData {
-  label: string;
-  value: number;
-  percentage: number;
-}
 
 const UnderstandingGDM = () => {
 
@@ -28,7 +45,7 @@ const UnderstandingGDM = () => {
     }
   }
   const handleClick = () => {
-    router.push("/CheckYourRisk");
+    router.push("/CheckYourRisk"); // Replace with the route you want to navigate to
   };
 
   return (
@@ -94,9 +111,12 @@ const UnderstandingGDM = () => {
              }
 
     <div className='m-5 p-5 '>
+    {MythData.map((data) =>(
+      <Accordion key= {data.id} title={data.title} content={data.content} className = "flex mx-auto w-[200px] sm:w-[500px] lg:w-[800px] justify-center items-center"></Accordion>
+      // <FlipCard key={data.id} heading ={data.title} content={data.content}/>
+      
+      ))}
 
-
-  <MythSection/>
       
     </div>
 
@@ -118,12 +138,12 @@ const UnderstandingGDM = () => {
               height={219}
               className="women-quote"
             />
-            <button className='px-auto my-2 mx-auto mb-2 bg-purple-600 max-w-[250px] justify-center items-center text-center text-white rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105'
+            <div className='px-auto m-auto mb-2 bg-purple-600 max-w-[175px] justify-center items-center text-center text-white rounded-lg cursor-pointer'
             onClick={handleClick}>
-              <div className=' flex py-3 mx-3 my-auto py-auto items-center justify-center'>
-                <Image src='/quiz.svg' width={50} height={50} alt='QUIZ' />Understand Better
+              <div className='py-3 mx-3 my-auto py-auto'>
+                Understand Better
               </div>
-            </button>
+            </div>
     </div>
     </>
   )

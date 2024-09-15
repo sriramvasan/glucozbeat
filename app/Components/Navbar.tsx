@@ -15,19 +15,19 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full h-18 shadow-xl bg-white z-40">
+    <nav className="sticky top-0 w-full h-18 shadow-xl bg-white z-40">
       <div className="flexBetween max-container padding-container relative py-3">
         <Link href="/">
           <Image src="/glucozbeat-logo.svg" alt="logo" width={150} height={29} />
         </Link>
 
         <ul className="hidden h-full gap-12 sm:flex">
-          <li><Link href='/Women' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Home</Link></li>
+          <li><Link href='/Home' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Home</Link></li>
           <li><Link href='/UnderstandingGDM' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Understand GDM</Link></li>
           <li><Link href='/CheckYourRisk' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Wellness Check</Link></li>
-          {/* <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Find healthy foods</Link></li>
-          <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Explore recipes</Link></li> */}
-          <li><Link href='/About' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Meet the team</Link></li>
+          <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Snap GI</Link></li>
+          <li><Link href='/' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Food Flip</Link></li>
+          {/* <li><Link href='/About' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Meet the team</Link></li> */}
         </ul>
 
         {/* <div className="lg:flexCenter hidden">
@@ -83,27 +83,27 @@ const Navbar = () => {
                 Wellness Check
               </li>
             </Link>
-            {/* <Link href="/">
+            <Link href="/">
               <li
                 onClick={() => setMenuOpen(false)}
                 className="py-4 cursor-pointer">
-                Find Healthy Foods
+                Snap GI
               </li>
             </Link>
             <Link href="/">
               <li
                 onClick={() => setMenuOpen(false)}
                 className="py-4 cursor-pointer">
-                Explore receipes
+                Food Flip
               </li>
-            </Link> */}
-            <Link href="/">
+            </Link>
+            {/* <Link href="/">
               <li
                 onClick={() => setMenuOpen(false)}
                 className="py-4 cursor-pointer">
                 Meet the team
               </li>
-            </Link>
+            </Link> */}
           </ul>
         </div>
       </div>
