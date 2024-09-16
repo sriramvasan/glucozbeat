@@ -98,6 +98,12 @@ const SnapGI = () => {
 
   return (
     <div className={styles.container}>
+      <header className={styles.header}>
+        <h1 className={styles.headerTitle}>SnapGI</h1>
+        <p className={styles.headerDescription}>
+          Upload and process images for food glycemic index detection.
+        </p>
+      </header>
       {/* Left side: Uploading Area + Submit Button */}
       <div className={styles.leftColumn}>
         <div
@@ -123,9 +129,16 @@ const SnapGI = () => {
           accept="image/*"
           style={{ display: "none" }} // Hide the file input element
         />
-        <button onClick={handleSubmit} disabled={loading} className={styles.button}>
-          {loading ? "Uploading..." : "Submit"}
-        </button>
+        {/* Conditionally render Submit or Reset button based on isProcessed */}
+        {isProcessed ? (
+          <button onClick={handleReset} className={styles.resetButton}>
+            Reset
+          </button>
+        ) : (
+          <button onClick={handleSubmit} disabled={loading} className={styles.button}>
+            {loading ? "Uploading..." : "Submit"}
+          </button>
+        )}        
       </div>
 
       {/* Right side: Display food information */}
@@ -159,7 +172,7 @@ const SnapGI = () => {
                 ))}
                 <p style={{ textAlign: 'center', marginBottom: '20px' }}>To find out what alternative there is, click the button below </p>
                 <Link href="/giFoods">
-                <button style={styles.foodflipButton}>
+                <button className={styles.foodflipButton}>
                    Go to Food Flip
                        </button>
                 </Link>

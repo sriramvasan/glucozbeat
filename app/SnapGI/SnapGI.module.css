@@ -9,6 +9,32 @@
     gap: 20px;
   }
   
+  .header {
+    text-align: left;
+    margin-bottom: 20px;
+    width: 100%;
+    color: #fff;
+    padding: 30px 20px;
+    background: oklch(49.5518% 0.236871 301.924056 / 1);
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .headerTitle {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 10px;
+  }
+  
+  .headerDescription {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    opacity: 0.9;
+  }
+
   .leftColumn {
     display: flex;
     flex-direction: column;
@@ -54,7 +80,19 @@
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+  .resetButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
   .infoArea {
     width: 100%;
     background-color: #fff;
@@ -102,4 +140,18 @@
     padding: 5px 10px;
     font-size: 0.9rem;
   }
+  .foodflipButton {
+    cursor: pointer;
+    background-color: oklch(49.5518% 0.236871 301.924056 / 1);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+  }
+  
   
