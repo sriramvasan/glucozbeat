@@ -7,23 +7,35 @@ export type FeatureItemProps = {
   description: string;
   link: string;
   label: string;
-}
+};
 
-const FeatureItem = ({ title, icon, description, link, label }: FeatureItemProps) => {
+const FeatureItem = ({
+  title,
+  icon,
+  description,
+  link,
+  label,
+}: FeatureItemProps) => {
   return (
-    <li className="flex w-full flex-1 flex-col items-start">
-      <div className="rounded-full p-4 lg:p-7 bg-primary/80">
-        <Image src={icon} alt="map" width={28} height={28} />
+    <li className="flex flex-col">
+      <div className="flex items-center">
+        <div className="mr-4 flex-shrink-0">
+          <div className="p-4 rounded-full bg-primary/80">
+            <Image src={icon} alt="map" width={28} height={28} />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-lg font-bold capitalize">{title}</h4>
+        </div>
       </div>
-      <h2 className="bold-20 lg:bold-32 mt-4 capitalize">
-        {title}
-      </h2>
-      <p className="regular-16 bg-white/80 text-gray-30 lg:bg-none">
-        {description}
-      </p>
-      <Link href={link} className="mt-2 btn btn-outline btn-primary btn-sm">{label}</Link>
+      <div className="mt-2">
+        <p className="text-gray-30">{description}</p>
+        <Link href={link} className="mt-2 btn btn-outline btn-primary btn-sm">
+          {label}
+        </Link>
+      </div>
     </li>
   );
-}
+};
 
 export default FeatureItem;
