@@ -157,8 +157,7 @@ const styles = {
     padding: "20px",
     maxWidth: "1200px",
     margin: "0 auto",
-    gap: "20px",
-    height: "85vh", // Full viewport height
+    gap: "20px"
   },
 
   leftColumn: {

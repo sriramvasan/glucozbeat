@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start": "concurrently \"npm run dev:next\" \"npm run dev:fastapi\"",
+    "dev:next": "next dev",
+    "dev:fastapi": "cd app/api/snapGI && uvicorn main:app --reload --port 8000"
   },
   "dependencies": {
+    "concurrently": "^9.0.1",
     "js-cookie": "^3.0.5",
     "mysql2": "^3.11.2",
     "next": "14.2.6",
