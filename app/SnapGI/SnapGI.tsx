@@ -1,7 +1,7 @@
 "use client"; // Add this directive to make it a client component
 
 import { useState, useRef } from "react";
-import styles from './snapGI.module.css'; // Import the CSS module
+import styles from './SnapGI.module.css';
 import Image from "next/image";
 
 const SnapGI = () => {
