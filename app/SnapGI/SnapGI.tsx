@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import styles from './SnapGI.module.css';
 import Image from "next/image";
+import Link from "next/link";
 
 const SnapGI = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -10,6 +11,7 @@ const SnapGI = () => {
   const [labels, setLabels] = useState<string[]>([]); // State to hold detected labels
   const [foodInfo, setFoodInfo] = useState<any[]>([]); // State to hold food information
   const [loading, setLoading] = useState(false);
+  const [isProcessed, setIsProcessed] = useState(false); // State to track if the image has been processed
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null); // State to track which item was copied
   const fileInputRef = useRef<HTMLInputElement | null>(null); // Ref to the file input element
 
@@ -20,6 +22,7 @@ const SnapGI = () => {
       const file = e.dataTransfer.files[0];
       setFile(file);
       setPreviewUrl(URL.createObjectURL(file)); // Set preview image URL
+      setIsProcessed(false); // Reset the processed state when a new image is uploaded
     }
   };
 
@@ -28,6 +31,7 @@ const SnapGI = () => {
       const file = e.target.files[0];
       setFile(file);
       setPreviewUrl(URL.createObjectURL(file)); // Set preview image URL
+      setIsProcessed(false); // Reset the processed state when a new image is uploaded
     }
   };
 
@@ -71,6 +75,7 @@ const SnapGI = () => {
       setPreviewUrl(processedImageUrl); // Replace the original image with processed image
       setLabels(data.labels); // Set the detected labels
       setFoodInfo(data.food_info); // Set the food information
+      setIsProcessed(true); // Mark the image as processed
     } catch (error) {
       console.error("Error during submission:", error);
       alert("An error occurred during submission. Check the console for more details.");
@@ -79,8 +84,26 @@ const SnapGI = () => {
     }
   };
 
+  // Reset all states to their initial values
+  const handleReset = () => {
+    setFile(null);
+    setPreviewUrl(null);
+    setLabels([]);
+    setFoodInfo([]);
+    setIsProcessed(false);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ""; // Reset the file input field
+    }
+  };
+
   return (
     <div className={styles.container}>
+      <header className={styles.header}>
+        <h1 className={styles.headerTitle}>SnapGI</h1>
+        <p className={styles.headerDescription}>
+          Upload and process images for food glycemic index detection.
+        </p>
+      </header>
       {/* Left side: Uploading Area + Submit Button */}
       <div className={styles.leftColumn}>
         <div
@@ -95,6 +118,7 @@ const SnapGI = () => {
             <>
               <p>Drag and Drop an Image Here</p>
               <p>or</p>
+              <p>Press anywhere to choose a picture to upload</p>
             </>
           )}
         </div>
@@ -105,9 +129,16 @@ const SnapGI = () => {
           accept="image/*"
           style={{ display: "none" }} // Hide the file input element
         />
-        <button onClick={handleSubmit} disabled={loading} className={styles.button}>
-          {loading ? "Uploading..." : "Submit"}
-        </button>
+        {/* Conditionally render Submit or Reset button based on isProcessed */}
+        {isProcessed ? (
+          <button onClick={handleReset} className={styles.resetButton}>
+            Reset
+          </button>
+        ) : (
+          <button onClick={handleSubmit} disabled={loading} className={styles.button}>
+            {loading ? "Uploading..." : "Submit"}
+          </button>
+        )}        
       </div>
 
       {/* Right side: Display food information */}
@@ -136,11 +167,16 @@ const SnapGI = () => {
                     </div>
                     {/* Glycemic Index remains normal */}
                     <p><strong>Glycemic Index:</strong> {food.glycemic_index}</p>
-                    <p><strong>Food description:</strong> {food.description}</p>
-                    
+                    <p>{food.description}</p>
                   </li>
                 ))}
-              </ul>
+                <p style={{ textAlign: 'center', marginBottom: '20px' }}>To find out what alternative there is, click the button below </p>
+                <Link href="/giFoods">
+                <button className={styles.foodflipButton}>
+                   Go to Food Flip
+                       </button>
+                </Link>
+                </ul>
           ) : (
             <div className={styles.placeholder}>No food information available.</div>
           )}

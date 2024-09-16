@@ -35,7 +35,7 @@ export const FEATURES = [
     variant: 'green',
     description:
       'Confused about which foods are safe to eat? Simply snap a picture! Our innovative image recognition technology identifies the foods on your plate and provides their glycemic index (GI) values instantly',
-    link: "",
+    link: "/SnapGI",
     label: "Snap My Food"
   },
   {
@@ -44,7 +44,7 @@ export const FEATURES = [
     variant: 'orange',
     description:
       'Eating well with GDM doesn’t mean giving up the foods you love. Search for low-GI alternatives to your favourite high-GI foods. Whether you are craving rice, bread, or a sweet treat, there are healthier, diabetes-friendly options',
-    link: "",
+    link: "giFoods",
     label: "Swap for Better"
   },
 ];
