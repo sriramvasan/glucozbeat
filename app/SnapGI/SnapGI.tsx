@@ -52,7 +52,7 @@ const SnapGI = () => {
     setLoading(true);
   
     try {
-      const res = await fetch("http://localhost:8000/detect/", {
+      const res = await fetch("http://herglucozbeat.com/api/detect/", {
         method: "POST",
         body: formData,
       });
@@ -67,7 +67,7 @@ const SnapGI = () => {
         throw new Error("processed_filename is missing in the response");
       }
   
-      const processedImageUrl = `http://localhost:8000/results/${data.processed_filename}`;
+      const processedImageUrl = `http://herglucozbeat.com/api/results/${data.processed_filename}`;
       setPreviewUrl(processedImageUrl); // Replace the original image with processed image
       setLabels(data.labels); // Set the detected labels
       setFoodInfo(data.food_info); // Set the food information
