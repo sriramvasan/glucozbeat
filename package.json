@@ -8,7 +8,7 @@
     "lint": "next lint",
     "start": "concurrently \"npm run dev:next\" \"npm run dev:fastapi\"",
     "dev:next": "next dev",
-    "dev:fastapi": "cd app/api/snapGI && uvicorn main:app --reload --port 8000"
+    "dev:fastapi": "cd app/api/model/snapGI && uvicorn main:app --reload --port 8000"
   },
   "dependencies": {
     "concurrently": "^9.0.1",

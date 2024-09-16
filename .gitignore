@@ -7,6 +7,12 @@
 /app/api/snapGI/model/*
 /app/api/snapGI/model/yolov8s.pt
 
+/app/api/model/snapGI/results
+/app/api/model/snapGI/uploads
+/app/api/model/snapGI/__pycache__
+/app/api/model/snapGI/model/*
+/app/api/model/snapGI/model/yolov8s.pt
+
 # dependencies
 /node_modules
 /.pnp
