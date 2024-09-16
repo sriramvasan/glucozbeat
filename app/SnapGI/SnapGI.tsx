@@ -39,7 +39,8 @@ const SnapGI = () => {
   };
 
   // Handle submit to send the image for processing
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault()
     if (!file) {
       alert("Please select a file first");
       return;
@@ -89,7 +90,7 @@ const SnapGI = () => {
           onClick={handleImageClick}  // Click on the image triggers file upload
         >
           {previewUrl ? (
-            <Image src={previewUrl} alt="Preview" className={styles.previewImage} width={200} height={200} />
+            <img src={previewUrl} alt="Preview" className={styles.previewImage} /> // Do not change it into Image, has some fast refresh problems.
           ) : (
             <>
               <p>Drag and Drop an Image Here</p>
