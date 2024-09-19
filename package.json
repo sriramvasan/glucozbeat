@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "concurrently": "^9.0.1",
+    "dompurify": "^3.1.6",
     "js-cookie": "^3.0.5",
     "mysql2": "^3.11.2",
     "next": "14.2.6",
@@ -23,6 +24,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.0.5",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
