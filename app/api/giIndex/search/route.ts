@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import mysql from 'mysql2/promise';
+import DOMPurify from 'dompurify';
+import React, { useState } from 'react';
 
 export async function GET(request: Request, res: NextResponse) {
     const connection = await mysql.createConnection({
@@ -13,11 +15,14 @@ export async function GET(request: Request, res: NextResponse) {
   const searchTerm = searchParams.get('searchTerm');
   const category = searchParams.get('category') ;
   const gi_class = searchParams.get('gi_class');
+  const [errorMessage, setErrorMessage] = useState('');
 
   // If no search term is provided, return a 400 error
   if (!searchTerm && !category) {
     return NextResponse.json({ error: 'Missing search term or category' }, { status: 400 });
   }
+
+  var badTerms = /onload|javascript|onerror|script|alert|eval/i;
 
   try {
     // Construct the query dynamically based on the provided category and searchTerm
@@ -30,8 +35,13 @@ export async function GET(request: Request, res: NextResponse) {
     }
 
     if (searchTerm) {
-      query += ' AND Foods LIKE ?';
-      params.push(`%${searchTerm}%`);
+      if (badTerms.test(searchTerm)) {
+        setErrorMessage('We do not currently have that food item available');
+      } else {
+        const sanitisedSearchTerm = DOMPurify.sanitize(searchTerm);
+        query += ' AND Foods LIKE ?';
+        params.push(`%${sanitisedSearchTerm}%`);
+      }
     }
 
     if (gi_class){
