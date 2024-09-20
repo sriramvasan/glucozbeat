@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import mysql from 'mysql2/promise';
-import DOMPurify from 'dompurify';
 
 export async function GET(request: Request, res: NextResponse) {
     const connection = await mysql.createConnection({

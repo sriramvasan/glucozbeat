@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "concurrently": "^9.0.1",
-    "dompurify": "^3.1.6",
     "js-cookie": "^3.0.5",
     "mysql2": "^3.11.2",
     "next": "14.2.6",
