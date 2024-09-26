@@ -9,6 +9,7 @@ import numpy as np
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import json
+import mimetypes
 
 app = FastAPI()
 
@@ -107,32 +108,37 @@ def get_food_info(labels):
 @app.post("/detect/")
 async def detect_objects(file: UploadFile = File(...)):
     try:
-        # Read the uploaded image file
-        image_data = await file.read()
+        valid_image_types = ['image/png', 'image/jpg', 'image/jpeg']
+        mime_type, _ = mimetypes.guess_type(file.filename)
+        if mime_type is None or mime_type not in valid_image_types:  # Or simply, if mime_type in valid_image_types
+            raise HTTPException(400, detail="Invalid image type")
+        else:
+            # Read the uploaded image file
+            image_data = await file.read()
+            
+            # Save the original image to the uploads folder
+            original_image_filename = f"original_image_{np.random.randint(10000)}.png"
+            save_original_image(image_data, original_image_filename)
+            
+            # Open the image file directly using PIL (without converting to a NumPy array)
+            image = Image.open(io.BytesIO(image_data))
+            
+            # Convert PIL image to OpenCV format (BGR)
+            image_cv = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
 
-        # Save the original image to the uploads folder
-        original_image_filename = f"original_image_{np.random.randint(10000)}.png"
-        save_original_image(image_data, original_image_filename)
+            # Process the image (perform object detection)
+            processed_image_filename, labels = process_image(image_cv)
 
-        # Open the image file directly using PIL (without converting to a NumPy array)
-        image = Image.open(io.BytesIO(image_data))
+            # Get food information based on detected labels
+            food_info = get_food_info(labels)
 
-        # Convert PIL image to OpenCV format (BGR)
-        image_cv = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
-
-        # Process the image (perform object detection)
-        processed_image_filename, labels = process_image(image_cv)
-
-        # Get food information based on detected labels
-        food_info = get_food_info(labels)
-
-        return JSONResponse(content={
-            "message": "Detection completed", 
-            "original_filename": original_image_filename,
-            "processed_filename": processed_image_filename,
-            "labels": labels,  # Send labels to the frontend
-            "food_info": food_info  # Send food info to the frontend
-        })
+            return JSONResponse(content={
+                "message": "Detection completed", 
+                "original_filename": original_image_filename,
+                "processed_filename": processed_image_filename,
+                "labels": labels,  # Send labels to the frontend
+                "food_info": food_info  # Send food info to the frontend
+            })
 
     except Exception as e:
         return JSONResponse(content={"error": str(e)})
