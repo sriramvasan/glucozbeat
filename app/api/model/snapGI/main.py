@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.responses import JSONResponse
 from PIL import Image
 import cv2
@@ -108,10 +108,10 @@ def get_food_info(labels):
 @app.post("/detect/")
 async def detect_objects(file: UploadFile = File(...)):
     try:
-        valid_image_types = ['image/png', 'image/jpg', 'image/jpeg']
-        mime_type, _ = mimetypes.guess_type(file.filename)
+        valid_image_types = ['image/png', 'image/jpg', 'image/jpeg']  # List of valid MIME file types for comparison to upload file
+        mime_type, _ = mimetypes.guess_type(file.filename)  # Using mimetypes to identify file extension type
         if mime_type is None or mime_type not in valid_image_types:  # Or simply, if mime_type in valid_image_types
-            raise HTTPException(400, detail="Invalid image type")
+            raise HTTPException(status_code=400, detail="Invalid image type")  # Cause an exception or error message upon incorrect/disallowed or missing MIME file type
         else:
             # Read the uploaded image file
             image_data = await file.read()
