@@ -11,10 +11,12 @@
     "dev:fastapi": "cd app/api/model/snapGI && uvicorn main:app --reload --port 8000"
   },
   "dependencies": {
+    "@langchain/openai": "^0.3.2",
     "concurrently": "^9.0.1",
     "js-cookie": "^3.0.5",
     "mysql2": "^3.11.2",
     "next": "14.2.6",
+    "openai": "^4.65.0",
     "react": "^18",
     "react-card-flip": "^1.2.3",
     "react-dom": "^18",
