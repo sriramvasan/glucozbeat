@@ -39,7 +39,7 @@ export function DownloadableResource({
           href={downloadUrl}
           target="_blank"
         >
-          Download
+          Click to see
           <MdiDownload></MdiDownload>
         </a>
       </div>

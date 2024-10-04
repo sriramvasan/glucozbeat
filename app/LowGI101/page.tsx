@@ -35,7 +35,7 @@ export default function LowGIPage() {
             href: "#how-to-follow",
         },
         {
-            title: "Downloadable Resources",
+            title: "Additional Resources",
             href: "#downloadable-resources-guides-for-better-health",
         },
     ];
@@ -320,7 +320,7 @@ export default function LowGIPage() {
 
                     <hr />
                     <h3 id="downloadable-resources-guides-for-better-health">
-                        Downloadable Resources: Guides for Better Health
+                        Additional Resources: Guides for Better Health
                     </h3>
                     <p>
                         Looking for some expert advice to guide you on your journey? We’ve
