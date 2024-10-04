@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import SearchComponent from '../Components/SearchComponent';
 import SpinnerLoader from '../Components/SpinnerLoader';
+import { useIngredients } from '../Contexts/IngredientsContext';
 
 interface FoodData {
   Foods: string;
@@ -17,6 +18,7 @@ const GiFoodsPage = () => {
   const [selectedLowGI, setifLowGI] = useState(false);
   const [selectedFood, setSelectedFood]= useState<FoodData>();
   const [isLoading, setIsLoading] = useState(false);
+  const { ingredients, addIngredient , removeIngredient} = useIngredients();
   
   // Fetch the food data based on search input from the database
   const fetchData = async (foodName: string) => {
@@ -64,6 +66,30 @@ const GiFoodsPage = () => {
       setifLowGI(false);
     }
   };
+
+  const handleIngredientToggle = (food: string) => {
+    if (ingredients.includes(food)) {
+      removeIngredient(food);
+    } else {
+      addIngredient(food);
+    }
+  };
+
+  const renderButton = (food: string) => {
+    const isInIngredients = ingredients.includes(food);
+    const buttonText = isInIngredients ? 'Remove from Recipe' : 'Add to Recipe';
+    const buttonColor = isInIngredients ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600';
+
+    return (
+      <button
+        className={`text-white py-1 px-4 rounded-lg transition-colors duration-300 ${buttonColor}`}
+        onClick={() => handleIngredientToggle(food)}
+      >
+        {buttonText}
+      </button>
+    );
+  };
+
   return (
     <>
     
@@ -87,14 +113,16 @@ const GiFoodsPage = () => {
                     <th className="px-4 py-2">Glycemic Index</th>
                     <th className="px-4 py-2">Category</th>
                     <th className="px-4 py-2">GI Class</th>
+                    <th className="px-4 py-2">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border px-4 py-2 w-3/6">{selectedFood.Foods}</td>
+                    <td className="border px-4 py-2 w-2/6">{selectedFood.Foods}</td>
                     <td className="border px-4 py-2 w-1/6">{selectedFood.Glycemic_Index}</td>
                     <td className="border px-4 py-2 w-1/6">{selectedFood.Category}</td>
                     <td className="border px-4 py-2 w-1/6">{selectedFood.GI_class}</td>
+                    <td className='border px-4 py-2 w-1/6'>{renderButton(selectedFood.Foods)}</td>
                   </tr>
                 </tbody>
               </table>
@@ -168,19 +196,23 @@ const GiFoodsPage = () => {
               <th className="px-4 py-2">Glycemic Index</th>
               <th className="px-4 py-2">Category</th>
               <th className="px-4 py-2">GI Class</th>
+              <th className="px-4 py-2">Action</th>
             </tr>
           </thead> 
           <tbody>
             {filteredData
             .filter((item) => item.GI_class === 'Low')
-            .sort(() => 0.5 - Math.random())
-            .slice(0, 3)  
+            // .sort(() => 0.5 - Math.random())
+            .slice(0, 5)  
             .map((food, index) => (
               <tr key={index}>
-                <td className="border px-4 py-2 w-3/6">{food.Foods}</td>
+                <td className="border px-4 py-2 w-2/6">{food.Foods}</td>
                 <td className="border px-4 py-2 w-1/6">{food.Glycemic_Index}</td>
                 <td className="border px-4 py-2 w-1/6">{food.Category}</td>
                 <td className="border px-4 py-2 w-1/6">{food.GI_class}</td>
+                <td className="border px-4 py-2 w-1/6">
+                {renderButton(food.Foods)}
+              </td>
               </tr>
             ))}
           </tbody>

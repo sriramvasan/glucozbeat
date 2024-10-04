@@ -42,7 +42,7 @@ const SearchComponent = ({ onSearch  }: SearchProps) => {
     setIsLoading(true);
     const res = await fetch(query);
     const data = await res.json();
-    let filtered = data.slice(5).map((item: { Foods: string }) => item.Foods)
+    let filtered = data.splice(2).map((item: { Foods: string }) => item.Foods)
     setSuggestions(filtered);
     setIsLoading(false);
   };

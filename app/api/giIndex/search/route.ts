@@ -24,7 +24,8 @@ export async function GET(request: Request, res: NextResponse) {
 
   try {
     // Construct the query dynamically based on the provided category and searchTerm
-    let query = 'SELECT distinct Foods, Glycemic_Index, Category, GI_class FROM giindex WHERE 1=1';
+    // let query = 'SELECT DISTINCT Foods, Glycemic_Index, Category, GI_class FROM giindex WHERE 1=1';
+    let query = 'SELECT DISTINCT Foods, Glycemic_Index, Category, GI_class FROM giindex WHERE Foods IN (SELECT DISTINCT Foods from giindex)';
     let params: any[] = [];
 
     if (category) {
@@ -47,7 +48,7 @@ export async function GET(request: Request, res: NextResponse) {
       params.push(gi_class)
     }
 
-    // query += ' LIMIT 5'; // Limit results to 5 for better performance
+    query += ' ORDER BY Glycemic_Index ASC';
 
     // Execute the query
     const [rows] = await connection.execute(query, params);
