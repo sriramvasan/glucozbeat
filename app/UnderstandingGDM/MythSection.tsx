@@ -136,7 +136,16 @@ const MythSection = () => {
         </>
       ),
       image: "/bigbaby.svg",
-      visual: <Image src="/bigbaby_visual.svg" width={100} height={100} alt="Big Baby Visual" />  // Different visual for big babies myth
+      visual:<div className="justify-left items-start p-1 rounded-lg">
+      <p className="text-xs text-gray-500 italic">
+        <a href="https://www.thewomens.org.au/news/diet-prevents-big-babies-in-gestational-diabetes-patients#:~:text=%E2%80%9CWomen%20with%20gestational%20diabetes%20can,haemorrhage%2C%E2%80%9D%20Dr%20Vally%20said." target="_blank" rel="noopener noreferrer" className="underline text-gray-500 hover:text-gray-700">
+          Women's Hospital News. (2017). Diet prevents big babies in gestational diabetes patients.
+        </a> <span className="text-gray-400">(External Source)</span>
+      </p>
+    </div>
+    
+    
+    
     },
     {
       id: 4,
@@ -156,7 +165,14 @@ const MythSection = () => {
         </>
       ),
       image: "/mother.svg",
-      visual: <Image src='/sugar.svg' width={20} height={40} alt='sugar' /> // Using DonutChart here again
+      visual: <div className="justify-left items-start p-1 rounded-lg">
+      <p className="text-xs text-gray-500 italic">
+        <a href="https://www.tommys.org/pregnancy-information/pregnancy-complications/gestational-diabetes/long-term-implications-gestational-diabetes#:~:text=If%20you've%20had%20gestational%20diabetes%2C%20you%20are%20now%20more,5%20years%20of%20giving%20birth." 
+        target="_blank" rel="noopener noreferrer" className="underline text-gray-500 hover:text-gray-700">
+          Long term implications of gestational diabetes
+        </a> <span className="text-gray-400">(External Source)</span>
+      </p>
+    </div>
     }
   ];
 
@@ -168,7 +184,7 @@ const MythSection = () => {
           title={data.title} 
           content={data.content} 
           img={data.image} 
-          visual={data.visual}  // Pass the visual from MythData
+          visual={data.visual} 
           className="flex mx-auto w-[200px] sm:w-[500px] lg:w-[800px] justify-center items-center transition-transform hover:scale-105"
         />
       ))}
