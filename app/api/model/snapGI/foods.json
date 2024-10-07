@@ -449,6 +449,106 @@
             "food": "Xoi",
             "glycemic_index": "N/A",
             "description": "Vietnamese sticky rice dish, GI varies with ingredients. Balance with vegetables and lean proteins."
+        },
+        {
+            "food": "burger",
+            "glycemic_index": "N/A",
+            "description": "Typically made with a beef or veggie patty served in a bun. Varies in nutritional content depending on ingredients."
+        },
+        {
+            "food": "butter_naan",
+            "glycemic_index": "65",
+            "description": "Indian flatbread made with white flour and butter, relatively high in glycemic index due to refined flour."
+        },
+        {
+            "food": "chai",
+            "glycemic_index": "N/A",
+            "description": "Spiced tea with milk and sugar. Popular in South Asia, but high in sugar when sweetened."
+        },
+        {
+            "food": "chapati",
+            "glycemic_index": "52",
+            "description": "Indian whole wheat flatbread, a staple food with a moderate glycemic index, healthier than white bread."
+        },
+        {
+            "food": "chole_bhature",
+            "glycemic_index": "N/A",
+            "description": "Chickpea curry with fried bread, popular in North India. High in calories and fats."
+        },
+        {
+            "food": "dal_makhani",
+            "glycemic_index": "N/A",
+            "description": "A creamy lentil dish cooked with butter and cream. Rich in protein but also in fats."
+        },
+        {
+            "food": "dhokla",
+            "glycemic_index": "35",
+            "description": "Steamed savory cake made from fermented rice and chickpea batter. Low glycemic index and a healthy snack option."
+        },
+        {
+            "food": "fried_rice",
+            "glycemic_index": "87",
+            "description": "Rice stir-fried with vegetables or meat, high in carbohydrates and often prepared with oil."
+        },
+        {
+            "food": "idli",
+            "glycemic_index": "35",
+            "description": "Steamed rice cake, low in fat and a low glycemic index food, common in South Indian cuisine."
+        },
+        {
+            "food": "jalebi",
+            "glycemic_index": "88",
+            "description": "Deep-fried sugary dessert, very high in glycemic index and should be consumed in moderation."
+        },
+        {
+            "food": "kaathi_rolls",
+            "glycemic_index": "N/A",
+            "description": "Indian street food consisting of flatbread stuffed with spicy meat or vegetables. Nutritional value depends on fillings."
+        },
+        {
+            "food": "kadai_paneer",
+            "glycemic_index": "N/A",
+            "description": "Indian cottage cheese cooked in spicy gravy. A high-protein vegetarian option but can be high in fats."
+        },
+        {
+            "food": "kulfi",
+            "glycemic_index": "60",
+            "description": "Traditional Indian ice cream made from condensed milk. High in sugar and fats."
+        },
+        {
+            "food": "masala_dosa",
+            "glycemic_index": "66",
+            "description": "South Indian dish made of fermented rice batter and filled with spiced potato. Moderate to high glycemic index."
+        },
+        {
+            "food": "momos",
+            "glycemic_index": "N/A",
+            "description": "Steamed or fried dumplings stuffed with vegetables or meat, popular in Nepal and Tibet. Nutritional value depends on preparation."
+        },
+        {
+            "food": "paani_puri",
+            "glycemic_index": "N/A",
+            "description": "Indian street food consisting of small, hollow puris filled with flavored water. High in carbs and sodium."
+        },
+        {
+            "food": "pakode",
+            "glycemic_index": "N/A",
+            "description": "Deep-fried fritters made with vegetables and chickpea flour. High in fat and should be consumed in moderation."
+        },
+        {
+            "food": "pav_bhaji",
+            "glycemic_index": "74",
+            "description": "Indian street food consisting of mashed vegetables served with buttered bread. High in carbohydrates and fats."
+        },
+        {
+            "food": "pizza",
+            "glycemic_index": "80",
+            "description": "A popular fast food, typically high in refined carbs, fats, and sodium. Glycemic index depends on crust and toppings."
+        },
+        {
+            "food": "samosa",
+            "glycemic_index": "65",
+            "description": "Deep-fried pastry stuffed with spiced potatoes or meat. High in glycemic index and fats due to frying."
         }
     ]
 }
