@@ -19,6 +19,9 @@ export async function GET(request: Request, res: NextResponse) {
     return NextResponse.json({ error: 'Missing search term or category' }, { status: 400 });
   }
 
+  var badTerms = /onload|javascript|onerror|script|alert|eval/i;
+  var sanitisedSearchTerm;
+
   try {
     // Construct the query dynamically based on the provided category and searchTerm
     let query = 'SELECT distinct Foods, Glycemic_Index, Category, GI_class FROM giindex WHERE 1=1';
@@ -30,8 +33,13 @@ export async function GET(request: Request, res: NextResponse) {
     }
 
     if (searchTerm) {
-      query += ' AND Foods LIKE ?';
-      params.push(`%${searchTerm}%`);
+      if (badTerms.test(searchTerm)) {
+        return NextResponse.json({error:'We do not currently have that food item'}, {status : 400});
+      } else {
+        // sanitisedSearchTerm = DOMPurify.sanitize(searchTerm);
+        query += ' AND Foods LIKE ?';
+        params.push(`%${searchTerm}%`);
+      }
     }
 
     if (gi_class){
