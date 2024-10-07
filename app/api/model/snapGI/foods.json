@@ -408,47 +408,47 @@
         {
             "food": "Banh_trang_tron",
             "glycemic_index": "N/A",
-            "description": "Vietnamese snack, GI not well-documented. Consumption should be balanced with other healthy foods."
+            "description": "Rice paper snack, GI not well-documented. Consumption should be balanced with other healthy foods."
         },
         {
             "food": "Banh_xeo",
             "glycemic_index": "N/A",
-            "description": "Vietnamese savory pancake, GI varies. Typically high in refined flour; balance with vegetables."
+            "description": "Savory pancake, GI varies. Typically high in refined flour; balance with vegetables."
         },
         {
             "food": "Bun_bo_Hue",
             "glycemic_index": "N/A",
-            "description": "Vietnamese noodle soup, GI depends on ingredients. Opt for healthier versions with more vegetables."
+            "description": "Noodle soup, GI depends on ingredients. Opt for healthier versions with more vegetables."
         },
         {
             "food": "Bun_dau",
             "glycemic_index": "N/A",
-            "description": "Vietnamese dish, GI varies with ingredients. Consume in moderation and balance with vegetables."
+            "description": "Tofu dish, GI varies with ingredients. Consume in moderation and balance with vegetables."
         },
         {
             "food": "Com_tam",
             "glycemic_index": "N/A",
-            "description": "Vietnamese broken rice dish, GI depends on preparation. Choose lean proteins and plenty of vegetables."
+            "description": "Broken rice dish, GI depends on preparation. Choose lean proteins and plenty of vegetables."
         },
         {
             "food": "Goi_cuon",
             "glycemic_index": "N/A",
-            "description": "Vietnamese fresh spring rolls, generally low GI if made with fresh ingredients and lean proteins."
+            "description": "Fresh spring rolls, generally low GI if made with fresh ingredients and lean proteins."
         },
         {
             "food": "Pho",
             "glycemic_index": "Varies",
-            "description": "Vietnamese noodle soup, GI depends on broth and noodles. Opt for less fatty versions and add vegetables."
+            "description": "Noodle soup, GI depends on broth and noodles. Opt for less fatty versions and add vegetables."
         },
         {
             "food": "Hu_tieu",
             "glycemic_index": "N/A",
-            "description": "Vietnamese noodle soup, GI varies with preparation. Choose lean proteins and vegetables for a healthier option."
+            "description": "Noodle soup, GI varies with preparation. Choose lean proteins and vegetables for a healthier option."
         },
         {
             "food": "Xoi",
             "glycemic_index": "N/A",
-            "description": "Vietnamese sticky rice dish, GI varies with ingredients. Balance with vegetables and lean proteins."
+            "description": "Sticky rice dish, GI varies with ingredients. Balance with vegetables and lean proteins."
         },
         {
             "food": "burger",

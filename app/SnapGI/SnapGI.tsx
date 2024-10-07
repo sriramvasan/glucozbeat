@@ -13,10 +13,9 @@ const SnapGI = () => {
   const [foodInfo, setFoodInfo] = useState<any[]>([]); // State to hold food information
   const [loading, setLoading] = useState(false);
   const [isProcessed, setIsProcessed] = useState(false); // State to track if the image has been processed
-  const [copiedIndex, setCopiedIndex] = useState<number | null>(null); // State to track which item was copied
-  const [showQRCode, setShowQRCode] = useState(false); // State to show/hide QR code
   const [sessionId, setSessionId] = useState<string | null>(null); // State to store session ID
   const fileInputRef = useRef<HTMLInputElement | null>(null); // Ref to the file input element
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null); // State to track which item was copied
 
   // QR code URL (bridge website for uploading)
   const [qrCodeUrl, setQrCodeUrl] = useState<string>("");
@@ -30,11 +29,11 @@ const SnapGI = () => {
       }
       setSessionId(currentSessionId);
 
-      // Set the QR Code URL for the current session
-      setQrCodeUrl(`https://herglucozbeat.com/SnapGI?session_id=${currentSessionId}`); // Replace with Proper upload page later on
+      // Set the QR Code URL for the upload page with the session ID
+      setQrCodeUrl(`http://localhost:3000/upload?session_id=${currentSessionId}`);
 
       // Establish WebSocket connection with the session ID
-      const ws = new WebSocket(`wss://herglucozbeat.com/ws/${currentSessionId}`);
+      const ws = new WebSocket(`ws://localhost:8000/ws/${currentSessionId}`);
 
       ws.onmessage = (event) => {
         const data = JSON.parse(event.data);
@@ -65,10 +64,6 @@ const SnapGI = () => {
       };
     }, []);
 
-
-
-
-
   // Handle drag and drop or click-based file selection
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -79,6 +74,7 @@ const SnapGI = () => {
       setIsProcessed(false); // Reset the processed state when a new image is uploaded
     }
   };
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (e.target.files && e.target.files.length > 0) {
         const selectedFile = e.target.files[0];
@@ -93,8 +89,6 @@ const SnapGI = () => {
         }
       }
     };
-
-
 
   // Open file input when clicking on the image
   const handleImageClick = () => {
@@ -117,7 +111,7 @@ const SnapGI = () => {
       setLoading(true);
 
       try {
-        const res = await fetch(`https://herglucozbeat.com/api/model/detect/?session_id=${sessionId}`, {
+        const res = await fetch(`http://localhost:8000/detect/?session_id=${sessionId}`, {
           method: "POST",
           body: formData,
         });
@@ -125,7 +119,6 @@ const SnapGI = () => {
         const data = await res.json();
         console.log('Data from backend: ', data);
 
-        // Ensure that processed_image_base64 exists
         if (!data.processed_image_base64) {
           throw new Error("processed_image_base64 is missing in the response");
         }
@@ -143,9 +136,6 @@ const SnapGI = () => {
       }
     };
 
-
-
-
   // Reset all states to their initial values
   const handleReset = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation(); // Prevent the event from bubbling up to the upload area
@@ -154,15 +144,9 @@ const SnapGI = () => {
     setLabels([]);
     setFoodInfo([]);
     setIsProcessed(false);
-    setShowQRCode(false); // Reset QR code visibility
     if (fileInputRef.current) {
       fileInputRef.current.value = ""; // Reset the file input field
     }
-  };
-
-  // Toggle QR code visibility
-  const handleToggleQRCode = () => {
-    setShowQRCode(!showQRCode); // Toggle showQRCode state
   };
 
   return (
@@ -172,19 +156,22 @@ const SnapGI = () => {
         <p className={styles.headerDescription}>
           Upload and process images for food glycemic index detection.
         </p>
+        <p className={styles.pageInstructions}>
+        You can either take a photo or upload an image of a food item. Once uploaded, the image will be processed, and the glycemic index of the food will be displayed.
+      </p>
       </header>
 
-      {/* Left side: Uploading Area + QR Code */}
-      <div className={styles.leftColumn}>
-          {/* Uploading Area */}
+      <div className={styles.contentWrapper}>
+        {/* Left side: Uploading Area */}
+        <div className={styles.leftColumn}>
           <div
-            className={`${styles.uploadArea} ${showQRCode ? styles.qrCodeOverlay : ""}`}
+            className={styles.uploadArea}
             onDrop={handleDrop}
             onDragOver={(e) => e.preventDefault()}
             onClick={handleImageClick}  // Click on the image triggers file upload
           >
             {previewUrl ? (
-              <img src={previewUrl} alt="Preview" className={styles.previewImage} />  // Show the uploaded or processed image
+              <img src={previewUrl} alt="Preview" className={styles.previewImage} />
             ) : (
               <>
                 <p>Drag and Drop an Image Here</p>
@@ -193,14 +180,6 @@ const SnapGI = () => {
               </>
             )}
 
-            {/* Show QR code in the middle if toggled */}
-            {showQRCode && (
-              <div className={styles.qrCodeContainer}>
-                <QRCode value={qrCodeUrl} size={320} />
-              </div>
-            )}
-
-            {/* Conditionally render Reset button if the image is processed */}
             {isProcessed && (
               <button onClick={handleReset} className={styles.resetButton}>
                 Reset
@@ -213,63 +192,76 @@ const SnapGI = () => {
             ref={fileInputRef}
             onChange={handleFileChange}
             accept="image/*"
+            capture="environment" // Opens camera on mobile devices
             style={{ display: "none" }}  // Hide the file input element
           />
 
-          {/* Submit and Show QR Code buttons */}
-          <div className={styles.buttonGroup}>
-            <button onClick={handleSubmit} disabled={loading} className={styles.actionButton}>
-              {loading ? "Uploading..." : "Submit"}
-            </button>
-            <button onClick={handleToggleQRCode} className={styles.actionButton}>
-              {showQRCode ? "Hide QR Code" : "Show QR Code"}
-            </button>
+          {!isProcessed && (
+            <div className={styles.buttonGroup}>
+              <button onClick={handleSubmit} disabled={loading} className={styles.actionButton}>
+                {loading ? "Uploading..." : "Submit"}
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Right side: QR code display */}
+        <div className={styles.rightColumn}>
+          <div className={styles.qrCodeContainer}>
+            <h2>QR Code</h2>
+            <QRCode value={qrCodeUrl} size={180} />
+            <p className={styles.qrDescription}>
+              1. Scan to get to the upload page on another device.<br />
+              2. Upload the image, and it will display here.
+            </p>
+          </div>
+        </div>
+      </div>
+
+        {/* Below: Display food information */}
+        <div className={styles.infoArea}>
+          <h2>Food Information</h2>
+          <div className={styles.infoContent}>
+            {foodInfo.length > 0 ? (
+              <ul className={styles.foodList}>
+                {foodInfo.map((food, index) => (
+                  <li key={index} className={styles.foodItem}>
+                    <div className={styles.foodNameContainer}>
+                      <h3 style={{ fontWeight: "bold", fontSize: "1.8rem", display: "inline-block" }}>
+                        {food.food}
+                      </h3>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(food.food);
+                          setCopiedIndex(index); // Set the index of the copied item
+                        }}
+                        className={styles.copyButton}
+                      >
+                        {copiedIndex === index ? "Copied" : "Copy"} {/* Change text to "Copied" when clicked */}
+                      </button>
+                    </div>
+                    <p><strong>Glycemic Index:</strong> {food.glycemic_index}</p>
+                    <p>{food.description}</p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className={styles.placeholder}>No food information available.</div>
+            )}
           </div>
         </div>
 
-
-      {/* Right side: Display food information */}
-      <div className={styles.infoArea}>
-        <h2>Food Information</h2>
-        <div className={styles.infoContent}>
-          {foodInfo.length > 0 ? (
-            <ul className={styles.foodList}>
-              {foodInfo.map((food, index) => (
-                <li key={index} className={styles.foodItem}>
-                  <div className={styles.foodNameContainer}>
-                    {/* Make the food name bold and bigger */}
-                    <h3 style={{ fontWeight: "bold", fontSize: "1.8rem", display: "inline-block" }}>
-                      {food.food}
-                    </h3>
-                    {/* Add a copy button */}
-                    <button
-                      onClick={() => {
-                        navigator.clipboard.writeText(food.food);
-                        setCopiedIndex(index); // Set the index of the copied item
-                      }}
-                      className={styles.copyButton}
-                    >
-                      {copiedIndex === index ? "Copied" : "Copy"}  {/* Change text to "Copied" when clicked */}
-                    </button>
-                  </div>
-                  {/* Glycemic Index remains normal */}
-                  <p><strong>Glycemic Index:</strong> {food.glycemic_index}</p>
-                  <p>{food.description}</p>
-                </li>
-              ))}
-              <p style={{ textAlign: 'center', marginBottom: '20px' }}>To find out what alternative there is, click the button below </p>
-              <Link href="/giFoods">
-                <button className={styles.foodflipButton}>
-                  Go to Food Flip
-                </button>
-              </Link>
-            </ul>
-          ) : (
-            <div className={styles.placeholder}>No food information available.</div>
-          )}
+        {/* Separate Section for Go to Food Flip */}
+        <div className={styles.foodFlipContainer}>
+          <p style={{ textAlign: 'center', marginBottom: '20px' }}>
+            To find out what alternative there is, click the button below
+          </p>
+          <Link href="/giFoods" className={styles.foodflipButton}>
+            Go to Food Flip
+          </Link>
         </div>
-      </div>
-    </div>
+
+        </div>
   );
 };
 

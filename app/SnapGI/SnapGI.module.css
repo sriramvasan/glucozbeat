@@ -9,6 +9,12 @@
   gap: 20px;
 }
 
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .header {
   text-align: left;
   margin-bottom: 20px;
@@ -35,16 +41,44 @@
   opacity: 0.9;
 }
 
+.pageDescription {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  color: #ddd;
+}
+
 .leftColumn {
+  flex: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative; /* For QR code positioning */
+}
+
+.rightColumn {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Center the QR code horizontally */
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.qrCodeContainer {
+  display: flex;
+  justify-content: center;  /* Horizontally centers the QR code */
+  align-items: center;  /* Vertically centers the QR code */
+  flex-direction: column; /* Ensures the description stays below the QR code */
+  text-align: center;
+}
+.pageInstructions {
+  margin-top: 20px;
+  font-size: 1.0rem;
+  color: #fff;
 }
 
 .uploadArea {
@@ -60,78 +94,52 @@
   background-color: #f9f9f9;
   border-radius: 10px;
   cursor: pointer;
-  position: relative; /* For QR code overlay */
-  overflow: hidden; /* To prevent overflow of QR code */
+  position: relative; /* Ensure relative positioning for the reset button */
 }
 
-.qrCodeContainer {
+.resetButton {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 2;
+  top: 10px;  /* Position the button at the top */
+  right: 10px;  /* Position the button at the right */
+  background-color: #f44336;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px; /* Increase the size */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+  transform: scale(1); /* Make it 2x larger */
 }
 
-.qrCodeOverlay .qrCodeContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .previewImage {
   width: 100%;
   height: 100%;
   object-fit: contain;
   border-radius: 10px;
-  position: relative;
-  z-index: 1;
 }
 
-.resetButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #f44336;
-  color: white;
-  font-size: 12px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  z-index: 10;
-  cursor: pointer;
-}
 
-.resetButton:hover {
-  background-color: #e53935;
-}
 
 .buttonGroup {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  gap: 10px;
   margin-top: 20px;
 }
 
 .actionButton {
   padding: 15px 30px;
   cursor: pointer;
-  background-color: oklch(49.5518% 0.236871 301.924056 / 1); /* SnapGI purple color */
+  background-color: oklch(49.5518% 0.236871 301.924056 / 1);
   color: #fff;
   border: none;
   border-radius: 5px;
-  width: 48%; /* Ensures both buttons have equal width */
+  width: 48%;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
-}
-
-.actionButton:hover {
-  background-color: oklch(50% 0.25 301 / 1); /* Slightly brighter SnapGI purple on hover */
 }
 
 .infoArea {
@@ -140,8 +148,6 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-height: 400px;
-  overflow-y: auto;
 }
 
 .infoContent {
@@ -157,21 +163,6 @@
 .foodItem {
   margin-bottom: 20px;
 }
-
-.placeholder {
-  padding: 10px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  font-style: italic;
-  color: #555;
-}
-
-.foodNameContainer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .copyButton {
   cursor: pointer;
   background-color: oklch(49.5518% 0.236871 301.924056 / 1);
@@ -181,12 +172,71 @@
   padding: 5px 10px;
   font-size: 0.9rem;
   transition: background-color 0.3s ease;
+  margin-left: 5px;  /* Moves the button 2 pixels to the right */
+  margin-top: -10px;  /* Moves the button 5 pixels up */
 }
 
-.copyButton:hover {
-  background-color: oklch(50% 0.25 301 / 1); /* Slightly brighter color on hover */
+.divider {
+  margin: 20px 0;
+  border: none;
+  border-top: 2px solid #e0e0e0; /* Light gray line to divide */
 }
 
+.infoArea {
+  background-color: #f7f7f7; /* Light background for contrast */
+  padding: 20px;
+  border-radius: 15px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-height: 400px;  /* Set a maximum height to make the content scrollable */
+  overflow-y: auto;   /* Make the food list scrollable */
+  border: 1px solid #e0e0e0; /* Light border for definition */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.infoArea:hover {
+  box-shadow: 0 12px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+.foodItem {
+  margin-bottom: 5px;
+  padding: 15px;
+  background-color: #fff; /* White background for each item */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: all 0.3s ease; /* Smooth transition on hover */
+}
+.foodItem:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Darker shadow on hover for effect */
+}
+
+.actionButton:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.foodFlipContainer {
+  margin-top: -10px;  /* Add space above to separate from food info */
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+.resetButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f44336; /* Initial color (red) */
+  color: white;
+  font-size: 12px;
+  padding: 10px 20px; /* Increase size */
+  border: none;
+  border-radius: 5px;
+  z-index: 10;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+.resetButton:hover {
+  background-color: #ff6659; /* Lighter red on hover */
+}
 .foodflipButton {
   cursor: pointer;
   background-color: oklch(49.5518% 0.236871 301.924056 / 1);
@@ -195,13 +245,36 @@
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 1.2rem;
-  width: 200px;
   text-align: center;
-  margin: 0 auto;
-  display: block;
+  display: inline-block;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .foodflipButton:hover {
-  background-color: oklch(50% 0.25 301 / 1); /* Slightly brighter color on hover */
+  background-color: #45a049; /* Slightly darker on hover */
+}
+
+.copyButton:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+
+
+
+
+
+.placeholder {
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  font-style: italic;
+  color: #555;
+}
+
+.qrDescription {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
 }

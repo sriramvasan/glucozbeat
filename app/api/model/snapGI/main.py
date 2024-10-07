@@ -43,28 +43,63 @@ def load_food_data():
     with open(FOODS_JSON_PATH, "r") as file:
         return json.load(file)
 
+import re  # Regular expression library to remove unwanted parts from labels
 
 def get_food_info(labels):
     """Find food information based on detected labels and ensure no duplicates."""
+    # Mapping Vietnamese food names to English equivalents
+    vietnamese_to_english = {
+        "banh_mi": "Bread",
+        "banh_trang_tron": "Rice Paper Salad",
+        "banh_xeo": "Crispy Pancake",
+        "bun_bo_hue": "Noodle Soup",
+        "bun_dau": "Tofu with Rice Noodles",
+        "com_tam": "Broken Rice",
+        "goi_cuon": "Spring Rolls",
+        "pho": "Noodle Soup",
+        "hu_tieu": "Clear Rice Noodle Soup",
+        "xoi": "Sticky Rice"
+    }
+
     food_data = load_food_data()
     detected_food_info = []
     seen_foods = set()  # Use a set to track unique food names
 
     for label in labels:
-        # Normalize the label to lowercase
-        food_name = label.split(" ")[0].lower()
+        print("Detected label:", label)
 
+        # Use regex to remove the confidence score (anything inside parentheses)
+        clean_label = re.sub(r'\s*\(.*?\)', '', label)  # Remove the confidence score and any surrounding spaces
+        print("Cleaned label:", clean_label)
+
+        # Normalize the label by converting it to lowercase and replacing spaces with underscores
+        food_name = clean_label.lower().replace(" ", "_")
+        print("Normalized food name:", food_name)
+
+        # Check if the food is in the vietnamese_to_english dictionary (for display purposes)
+        english_food_name = vietnamese_to_english.get(food_name, None)
+
+        # Keep the original Vietnamese food name for searching in the database
         if food_name not in seen_foods:  # Add only if it's not already seen
             # Search for the food in the JSON, making it case-insensitive
             for food in food_data["foods"]:
                 if food["food"].lower() == food_name:  # Compare in lowercase
-                    # Modify the food name to readable format (capitalize words)
-                    food["food"] = food["food"].replace("_", " ").title()
-                    detected_food_info.append(food)
+                    # If we found the food, add it to the detected food info
+                    food_info = food.copy()
+                    if english_food_name:
+                        # Use the English name for display if available
+                        food_info["food"] = english_food_name
+                    else:
+                        # Otherwise, use the original Vietnamese name
+                        food_info["food"] = food["food"].replace("_", " ").title()
+                    detected_food_info.append(food_info)
                     seen_foods.add(food_name)  # Mark food as seen
                     break
 
+    print("Detected food info:", detected_food_info)
     return detected_food_info
+
+
 
 
 
@@ -96,14 +131,14 @@ def process_image_with_yolo(image, confidence_threshold=0.5):
         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
         # Draw bounding boxes and labels on the image
-        for i, box in enumerate(boxes):
-            x1, y1, x2, y2 = map(int, box)  # Convert box coordinates to integers
-            color = (255, 0, 0)  # Red bounding box color
-
-            # Draw bounding box and label
-            img_rgb = cv2.rectangle(img_rgb, (x1, y1), (x2, y2), color, 2)  # Thicker line (2)
-            img_rgb = cv2.putText(img_rgb, f'{label} {confidence:.2f}', (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9,
-                                  color, 2)  # Larger font and thicker text
+        # for i, box in enumerate(boxes):
+        #     x1, y1, x2, y2 = map(int, box)  # Convert box coordinates to integers
+        #     color = (255, 0, 0)  # Red bounding box color
+        #
+        #     # Draw bounding box and label
+        #     img_rgb = cv2.rectangle(img_rgb, (x1, y1), (x2, y2), color, 2)  # Thicker line (2)
+        #     img_rgb = cv2.putText(img_rgb, f'{label} {confidence:.2f}', (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9,
+        #                           color, 2)  # Larger font and thicker text
 
         # Convert OpenCV image (NumPy array) to PIL Image for conversion to bytes
         img_pil = Image.fromarray(img_rgb)  # Now it's in RGB format
