@@ -25,12 +25,12 @@ const SnapGI = () => {
       let currentSessionId = new URLSearchParams(window.location.search).get("session_id");
       if (!currentSessionId) {
         currentSessionId = uuidv4();
-        window.history.replaceState(null, null, `?session_id=${currentSessionId}`);
+        window.history.replaceState(null, '', `?session_id=${currentSessionId}`);
       }
       setSessionId(currentSessionId);
 
       // Set the QR Code URL for the upload page with the session ID
-      setQrCodeUrl(`http://localhost:3000/upload?session_id=${currentSessionId}`);
+      setQrCodeUrl(`http://localhost:3000/Upload?session_id=${currentSessionId}`);
 
       // Establish WebSocket connection with the session ID
       const ws = new WebSocket(`ws://localhost:8000/ws/${currentSessionId}`);
@@ -98,7 +98,7 @@ const SnapGI = () => {
   };
 
   // Handle submit to send the image for processing
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
       e.preventDefault();
       if (!file) {
         alert("Please select a file first");

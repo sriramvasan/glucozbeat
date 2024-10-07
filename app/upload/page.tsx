@@ -33,7 +33,7 @@ const UploadPage = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if (!file) {
       alert("Please select a file first.");
