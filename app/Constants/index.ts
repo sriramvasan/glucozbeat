@@ -21,6 +21,15 @@ export const FEATURES = [
     label: "Get the Facts",
   },
   {
+    title: 'Low GI Made Easy',
+    icon: '/guide.svg',
+    variant: 'green',
+    description:
+      'Want to crack the code on managing your blood sugar? Our Low GI guide serves up bite-sized tips and quick videos to help you understand what’s up with carbs and gestational diabetes',
+    link: "/LowGI101",
+    label: "Start My Journey"
+  },
+  {
     title: 'Quick Health Assessment',
     icon: '/heart.svg',
     variant: 'green',
@@ -43,9 +52,19 @@ export const FEATURES = [
     icon: '/swap.svg',
     variant: 'orange',
     description:
-      'Eating well with GDM doesn’t mean giving up the foods you love. Search for low-GI alternatives to your favourite high-GI foods. Whether you are craving rice, bread, or a sweet treat, there are healthier, diabetes-friendly options',
+      'Eating well with GDM doesn’t mean giving up the foods you love. Search for low-GI alternatives to your favourite high-GI foods. Whether you are craving rice or bread, there are healthier, diabetes-friendly options',
     link: "giFoods",
     label: "Swap for Better"
+  },
+
+  {
+    title: 'Personalized low GI recipes',
+    icon: '/recipe.svg',
+    variant: 'green',
+    description:
+      'Got a fridge full of ingredients and no clue what to make? Enter what you got, and we’ll dish out low-GI recipes from Indian, Chinese, Vietnamese, Italian, or American cuisines. Cooking just got a whole lot easier',
+    link: "/Recipe",
+    label: "Cook it Up"
   },
 ];
 

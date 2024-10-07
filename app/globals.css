@@ -61,6 +61,10 @@ main{
   }
 
   /* From the second version */
+  .button-container a {
+    margin-left: 20px; /* Adds space between the buttons */
+  }
+  
   .btn_white { 
     @apply border-white bg-white px-8 py-3 text-green-50;
   }
