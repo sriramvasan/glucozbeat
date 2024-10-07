@@ -34,7 +34,7 @@ const SnapGI = () => {
       setQrCodeUrl(`https://herglucozbeat.com/SnapGI?session_id=${currentSessionId}`); // Replace with Proper upload page later on
 
       // Establish WebSocket connection with the session ID
-      const ws = new WebSocket(`wss://https://herglucozbeat.com/ws/${currentSessionId}`);
+      const ws = new WebSocket(`wss://herglucozbeat.com/api/model/ws/${currentSessionId}`);
 
       ws.onmessage = (event) => {
         const data = JSON.parse(event.data);
