@@ -5,13 +5,18 @@ import Image from "next/image";
 import Button from "./Button";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import { FaChevronDown } from "react-icons/fa";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // State to toggle the dropdown
 
   const handleNav = () => {
-    console.log("handleNav triggered"); // Debugging line
     setMenuOpen(!menuOpen);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
   };
 
   return (
@@ -25,22 +30,26 @@ const Navbar = () => {
           <li><Link href='/Home' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Home</Link></li>
           <li><Link href='/UnderstandingGDM' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Understand GDM</Link></li>
           <li><Link href='/CheckYourRisk' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Wellness Check</Link></li>
-          <li><Link href='/SnapGI' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Snap GI</Link></li>
-          <li><Link href='/giFoods' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Food Flip</Link></li>
-          <li><Link href='/Recipe' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Recipes</Link></li>
-          {/* <li><Link href='/About' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Meet the team</Link></li> */}
-        </ul>
 
-        {/* <div className="lg:flexCenter hidden">
-          <Link href="/CheckYourRisk">
-          <Button
-            type="button"
-            title="Check Your Risk"
-            icon="/user.svg"
-            variant="btn_dark_green"
-          />
-          </Link>
-        </div> */}
+          {/* Dropdown for Snap GI and Food Flip */}
+          <li className="relative cursor-pointer">
+            <div onClick={toggleDropdown} className="regular-16 text-gray-50 flexCenter pb-1.5 transition-all hover:font-bold flex items-center">
+              Explore <FaChevronDown className="ml-1" />
+            </div>
+            {dropdownOpen && (
+              <ul className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-md">
+                <li className="py-2 px-4 hover:bg-gray-100">
+                  <Link href='/SnapGI' onClick={() => setDropdownOpen(false)}>Snap GI</Link>
+                </li>
+                <li className="py-2 px-4 hover:bg-gray-100">
+                  <Link href='/giFoods' onClick={() => setDropdownOpen(false)}>Food Flip</Link>
+                </li>
+              </ul>
+            )}
+          </li>
+
+          <li><Link href='/Recipe' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Recipes</Link></li>
+        </ul>
 
         <div onClick={handleNav} className="inline-block cursor-pointer sm:hidden">
           <Image
@@ -51,6 +60,8 @@ const Navbar = () => {
           />
         </div>
       </div>
+
+      {/* Mobile menu */}
       <div className={
         menuOpen
           ? "fixed left-0 top-0 w-[65%] sm:hidden h-screen bg-[#ecf0f4] p-10 ease-in duration-500"
@@ -84,27 +95,31 @@ const Navbar = () => {
                 Wellness Check
               </li>
             </Link>
-            <Link href="/">
+
+            {/* Mobile dropdown */}
+            <li className="py-4 cursor-pointer">
+              <div onClick={toggleDropdown} className="flex justify-between items-center">
+                Explore <FaChevronDown className="ml-1" />
+              </div>
+              {dropdownOpen && (
+                <ul className="mt-2">
+                  <Link href="/SnapGI">
+                    <li className="py-2 px-4" onClick={() => setMenuOpen(false)}>Snap GI</li>
+                  </Link>
+                  <Link href="/giFoods">
+                    <li className="py-2 px-4" onClick={() => setMenuOpen(false)}>Food Flip</li>
+                  </Link>
+                </ul>
+              )}
+            </li>
+
+            <Link href="/Recipe">
               <li
                 onClick={() => setMenuOpen(false)}
                 className="py-4 cursor-pointer">
-                Snap GI
+                Recipes
               </li>
             </Link>
-            <Link href="/">
-              <li
-                onClick={() => setMenuOpen(false)}
-                className="py-4 cursor-pointer">
-                Food Flip
-              </li>
-            </Link>
-            {/* <Link href="/">
-              <li
-                onClick={() => setMenuOpen(false)}
-                className="py-4 cursor-pointer">
-                Meet the team
-              </li>
-            </Link> */}
           </ul>
         </div>
       </div>
