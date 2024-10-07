@@ -1,17 +1,9 @@
 'use client';
 import React from 'react'
-import Accordion from '../Components/Accordian'
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import MythSection from './MythSection';
-
-
-interface GDMData {
-  label: string;
-  value: number;
-  percentage: number;
-}
 
 const UnderstandingGDM = () => {
 
@@ -66,24 +58,6 @@ const UnderstandingGDM = () => {
         </div>
         </div>
       </div>
-      {/* <div className="flexEnd mt-10 px-6 lg:-mt-60 lg:mr-6">
-          <div className="bg-purple-500 p-8 lg:max-w-[500px] xl:max-w-[734px] xl:rounded-5xl xl:px-16 xl:py-20 relative w-full overflow-hidden rounded-3xl">
-            <h2 className="regular-20 md:regular-28 2xl:regular-64 capitalize text-white">
-            Remember <strong>You&apos;re not alone</strong> 
-            </h2>
-            <p className="regular-14 xl:regular-16 mt-5 text-white">
-            Managing gestational diabetes can feel overwhelming, especially when faced with unfamiliar advice and conflicting information. That’s why we’re here—to guide you through every step of your journey with support, clarity, and culturally relevant resources
-            </p>
-            <Image 
-              src="/quote.svg"
-              alt="camp-2"
-              width={186}
-              height={219}
-              className="women-quote"
-            />
-          </div>
-        </div> */}
-
     </section>
     { showinfo && 
         <div className='flex flex-col max-w-[500px] mt-5 p-3 mx-auto rounded-md bg-purple-50 px-auto justify-center items-center'>
@@ -106,7 +80,7 @@ const UnderstandingGDM = () => {
       {/* <p>Remember: You are not alone. Like Priya, you can take control of your GDM journey with the right knowledge and support. Explore our resources to find meal plans and exercises tailored to your needs.</p> */}
     </div>
 
-    <div className='flex flex-col px-5 mx-auto my-5 justify-center text-justify max-w-[800px] bg-purple-100 rounded-xl'>
+    <div className='flex flex-col px-5 mx-auto my-5 justify-center text-left max-w-[800px] bg-purple-100 rounded-xl'>
     <h2 className="capitalize text-black"> Remember <strong>You&apos;re not alone</strong> </h2>
             <p className="regular-14 xl:regular-16 mt-5 text-stone-500">
             Managing gestational diabetes can feel overwhelming, especially when faced with unfamiliar advice and conflicting information. That’s why we’re here—to guide you through every step of your journey with support, clarity, and culturally relevant resources
@@ -118,12 +92,17 @@ const UnderstandingGDM = () => {
               height={219}
               className="women-quote"
             />
-            <button className='px-auto my-2 mx-auto mb-2 bg-purple-600 max-w-[250px] justify-center items-center text-center text-white rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105'
+            {/* <div className='mx-auto'> */}
+            <button className='flex flex-row px-2 my-2 mx-auto bg-purple-600 max-w-[350px] justify-center items-center text-left text-white rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105'
             onClick={handleClick}>
-              <div className=' flex py-3 mx-3 my-auto py-auto items-center justify-center'>
-                <Image src='/quiz.svg' width={50} height={50} alt='QUIZ' />Understand Better
+              <div className='py-2 mx-1 items-center justify-center'>
+                <Image src='/quiz.svg' width={25} height={25} alt='QUIZ' />
               </div>
+              Understand Better
             </button>
+
+            {/* </div> */}
+            
     </div>
     </>
   )

@@ -1,4 +1,5 @@
 import { SetStateAction, useState } from 'react';
+import SpinnerLoader from './SpinnerLoader';
 
 interface SearchProps {
   onSearch: (foodName: string) => void;
@@ -31,17 +32,19 @@ const SearchComponent = ({ onSearch  }: SearchProps) => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [foodCategory , setFoodcategory] = useState<string>('null');
   const [searchSelected, setSearchSelected] = useState<boolean>(false); // New state for shrinking
-
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchSuggestions = async (term: string, category: string) => {
     let query = `/api/giIndex/search?searchTerm=${term}`;
     if (foodCategories.includes(category)) {
         query += `&category=${category}`;
     }
+    setIsLoading(true);
     const res = await fetch(query);
     const data = await res.json();
-    let filtered = data.slice(5).map((item: { Foods: string }) => item.Foods)
+    let filtered = data.splice(2).map((item: { Foods: string }) => item.Foods)
     setSuggestions(filtered);
+    setIsLoading(false);
   };
 
   const handleSelectChange = (e: { target: { value: SetStateAction<string>; }; }) => {
@@ -80,7 +83,15 @@ const SearchComponent = ({ onSearch  }: SearchProps) => {
       >
   <div className="absolute inset-0 flex justify-center items-center">
     <div className="relative w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%] space-y-4">
-      
+    <div className="text-left text-2xl md:text-3xl bg-gray-100 bg-opacity-50 lg:text-4xl text-black p-4 rounded-lg">
+            <h1 className='mx-5 mt-2'>
+              CHOOSE THE FOODS YOU LOVE, SEE IF YOU NEED A HEALTHIER SWAP.
+              {/* Choose the foods you love, see if you need a healthier swap. */}
+            </h1>
+            <p className="text-left mx-2 text-xs md:text-sm p-2 bg-opacity-10rounded-lg">
+              Specifically designed for pregnant women, helping you manage your blood sugar levels while enjoying the foods you love.
+            </p>
+          </div>
       {/* Responsive Grid for dropdown and search input */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Dropdown */}
@@ -111,9 +122,11 @@ const SearchComponent = ({ onSearch  }: SearchProps) => {
           className="border bg-opacity-70 p-2 rounded-lg w-full bg-purple-50 shadow-lg"
         />
       </div>
-
+      {isLoading && (
+        <SpinnerLoader message="Loading..."/>
+      )}
       {/* Render suggestions */}
-      {suggestions.length > 0 && (
+      {suggestions.length > 0 && !isLoading && (
         <ul className="absolute z-10 bg-opacity-70 bg-white w-full max-h-80 overflow-y-auto rounded-lg shadow-lg">
           {suggestions.map((suggestion, index) => (
             <li

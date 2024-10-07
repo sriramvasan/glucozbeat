@@ -51,6 +51,15 @@ module.exports = {
       borderRadius: {
         '5xl': '40px',
       },
+      animation: {
+        scale: 'scale 1s infinite ease-in-out',
+      },
+      keyframes: {
+        scale: {
+          '0%, 100%': { transform: 'scaleY(0.4)' },
+          '50%': { transform: 'scaleY(1)' },
+        },
+      },
     },
   },
   plugins: [daisyui],
