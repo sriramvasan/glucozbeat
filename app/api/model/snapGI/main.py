@@ -149,10 +149,10 @@ async def detect_objects(request: Request, file: UploadFile = File(...)):
         if not session_id:
             raise ValueError("Session ID not provided")
 
-        valid_image_types = ['image/png', 'image/jpg', 'image/jpeg']
-        mime_type, _ = mimetypes.guess_type(file.filename)
-        if mime_type is None or mime_type not in valid_image_types:
-            raise HTTPException(status_code=400, detail='Invalid image type: Accepted extensions are .png, .jpg, .jpeg')
+        valid_image_types = ['image/png', 'image/jpg', 'image/jpeg']  # Added file type extensions to allowed file types
+        mime_type, _ = mimetypes.guess_type(file.filename)  # mimetypes verification of image upload
+        if mime_type is None or mime_type not in valid_image_types:  # error handling to verify image upload
+            raise HTTPException(status_code=400, detail='Invalid image type: Accepted extensions are .png, .jpg, .jpeg')  # exception handling
         
         # Read the uploaded image file
         image_data = await file.read()
