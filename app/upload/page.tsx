@@ -46,7 +46,7 @@ const UploadPage = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:8000/detect/?session_id=${sessionId}`, {
+      const res = await fetch(`https://herglucozbeat.com/api/model/detect/?session_id=${sessionId}`, {
         method: "POST",
         body: formData,
       });
