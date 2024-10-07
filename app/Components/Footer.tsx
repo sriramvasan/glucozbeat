@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:gap-20">
           <Link href="/">
             <Image
-              src="glucozbeat-logo.svg"
+              src="/glucozbeat-logo.svg"
               alt="logo"
               width={200}
               height={80}

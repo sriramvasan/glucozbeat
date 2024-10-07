@@ -78,7 +78,7 @@ const SearchComponent = ({ onSearch  }: SearchProps) => {
       className={`relative bg-cover bg-right w-full ${
         (searchSelected) ? 'h-[350px]' : 'h-[650px]'
       } transition-all duration-3500 ease-in-out`} // Shrink when search is selected
-      style={{ backgroundImage: 'url("bgfood_image.jpg")' }}
+      style={{ backgroundImage: 'url("/bgfood_image.jpg")' }}
 
       >
   <div className="absolute inset-0 flex justify-center items-center">

@@ -11,6 +11,7 @@ import json
 import torch
 from transformers import AutoImageProcessor, AutoModelForImageClassification
 
+
 app = FastAPI()
 
 # Load YOLO model
@@ -182,6 +183,7 @@ async def detect_objects(request: Request, file: UploadFile = File(...)):
             "labels": labels,
             "food_info": food_info
         })
+
 
     except Exception as e:
         print(f"Error occurred during processing: {e}")

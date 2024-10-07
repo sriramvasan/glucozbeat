@@ -8,6 +8,8 @@ import {
 } from "./schema";
 import { createRef, useEffect, useState } from "react";
 import { LearnMoreAboutGSMRisks } from "./LearnMore";
+import Link from 'next/link';
+
 
 interface ResultsProps {
   formData: z.infer<typeof riskCalculatorFormSchema>;
@@ -251,8 +253,11 @@ export const Results = ({ formData }: ResultsProps) => {
         </div>
       </div>
 
-      <div>
+      <div className="button-container">
         <LearnMoreAboutGSMRisks />
+        <Link href = "/LowGI101" className="btn btn-primary btn-wide">
+          Explore our low GI guide now
+        </Link>
       </div>
 
       {/* {riskCategory === "High" && (
