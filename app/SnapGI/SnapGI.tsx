@@ -31,7 +31,7 @@ const SnapGI = () => {
       setSessionId(currentSessionId);
 
       // Set the QR Code URL for the current session
-      setQrCodeUrl(`http://localhost:8000/upload?session_id=${currentSessionId}`); // Replace with your actual server endpoint
+      setQrCodeUrl(`http://localhost:3000/SnapGI?session_id=${currentSessionId}`); // Replace with Proper upload page later on
 
       // Establish WebSocket connection with the session ID
       const ws = new WebSocket(`ws://localhost:8000/ws/${currentSessionId}`);
