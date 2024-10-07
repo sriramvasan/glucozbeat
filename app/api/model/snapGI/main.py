@@ -18,6 +18,9 @@ from slowapi.util import get_remote_address
 app = FastAPI()
 limiter = Limiter(key_func=get_remote_address)
 
+mimetypes.add_type('image/heic', '.heic')
+mimetypes.add_type('image/heif', '.heif')
+
 # Load YOLO model
 yolo_model = YOLO('model/yolov8s.pt')  # Update path to your weights as necessary
 
@@ -149,7 +152,7 @@ async def detect_objects(request: Request, file: UploadFile = File(...)):
         if not session_id:
             raise ValueError("Session ID not provided")
 
-        valid_image_types = ['image/png', 'image/jpg', 'image/jpeg']  # Added file type extensions to allowed file types
+        valid_image_types = ['image/png', 'image/jpg', 'image/jpeg', 'image/heic', 'image/heif']  # Added file type extensions to allowed file types
         mime_type, _ = mimetypes.guess_type(file.filename)  # mimetypes verification of image upload
         if mime_type is None or mime_type not in valid_image_types:  # error handling to verify image upload
             raise HTTPException(status_code=400, detail='Invalid image type: Accepted extensions are .png, .jpg, .jpeg')  # exception handling
