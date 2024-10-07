@@ -12,6 +12,7 @@
 /app/api/model/snapGI/__pycache__
 /app/api/model/snapGI/model/*
 /app/api/model/snapGI/model/yolov8s.pt
+/app/api/model/snapGI/model_cache
 
 # dependencies
 /node_modules

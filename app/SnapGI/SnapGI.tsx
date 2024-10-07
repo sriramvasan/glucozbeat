@@ -31,7 +31,7 @@ const SnapGI = () => {
       setSessionId(currentSessionId);
 
       // Set the QR Code URL for the current session
-      setQrCodeUrl(`http://localhost:3000/SnapGI?session_id=${currentSessionId}`); // Replace with Proper upload page later on
+      setQrCodeUrl(`https://herglucozbeat.com/SnapGI?session_id=${currentSessionId}`); // Replace with Proper upload page later on
 
       // Establish WebSocket connection with the session ID
       const ws = new WebSocket(`ws://localhost:8000/ws/${currentSessionId}`);
@@ -117,7 +117,7 @@ const SnapGI = () => {
       setLoading(true);
 
       try {
-        const res = await fetch(`http://localhost:8000/detect/?session_id=${sessionId}`, {
+        const res = await fetch(`https://herglucozbeat.com/api/model/detect/?session_id=${sessionId}`, {
           method: "POST",
           body: formData,
         });
