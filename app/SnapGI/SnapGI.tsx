@@ -154,11 +154,12 @@ const SnapGI = () => {
       <header className={styles.header}>
         <h1 className={styles.headerTitle}>SnapGI</h1>
         <p className={styles.headerDescription}>
-          Upload and process images for food glycemic index detection.
+        Curious about the GI index for the food in front of you? 
         </p>
         <p className={styles.pageInstructions}>
-        You can either take a photo or upload an image of a food item. Once uploaded, the image will be processed, and the glycemic index of the food will be displayed.
-      </p>
+        Upload an image, and our food recognition tool will provide detailed information about the ingredients, GI index, and more! 
+        <br />Whether you're tracking your meals or learning about new foods, we're here to help you on this delicious journey. 
+        <br />Let's explore your plate together!      </p>
       </header>
 
       <div className={styles.contentWrapper}>
@@ -208,11 +209,11 @@ const SnapGI = () => {
         {/* Right side: QR code display */}
         <div className={styles.rightColumn}>
           <div className={styles.qrCodeContainer}>
-            <h2>QR Code</h2>
-            <QRCode value={qrCodeUrl} size={180} />
+            <h2>Mobile Upload</h2><br />
+            <QRCode value={qrCodeUrl} size={180} /><br />
             <p className={styles.qrDescription}>
-              1. Scan to get to the upload page on another device.<br />
-              2. Upload the image, and it will display here.
+              1. Scan to get to the upload page on your mobile device.<br /><br />
+              2. Upload the image, and the information will display.
             </p>
           </div>
         </div>
@@ -254,7 +255,7 @@ const SnapGI = () => {
         {/* Separate Section for Go to Food Flip */}
         <div className={styles.foodFlipContainer}>
           <p style={{ textAlign: 'center', marginBottom: '20px' }}>
-            To find out what alternative there is, click the button below
+            Want to know what alternative is out there ? Copy the food and click the button below
           </p>
           <Link href="/giFoods" className={styles.foodflipButton}>
             Go to Food Flip
