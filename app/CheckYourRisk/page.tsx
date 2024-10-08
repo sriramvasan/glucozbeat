@@ -91,7 +91,7 @@ const IntroStep = ({ nextStep }: FormStepProps) => {
       </p>
       <p className="regular-20">
         In this quiz, we&apos;ll help you understand more about your gestational
-        health during pregnancy. Let&apos;s explore this journey together!
+        health during pregnancy. Let&apos;s explore this journey together.
       </p>
       <button className="btn btn-primary btn-lg btn-wide" onClick={nextStep}>
         Start My Health Check

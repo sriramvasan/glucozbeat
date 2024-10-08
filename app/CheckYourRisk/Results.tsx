@@ -224,10 +224,7 @@ export const Results = ({ formData }: ResultsProps) => {
           {riskCategory === "Low" && (
             <div className="text-sm">
             <h3 className="bold-16" style={{ marginBottom: '1rem' }}>Your results indicate a low GSM risk</h3>
-              Great news! 
-              Keep up your healthy habits and continue to take care of yourself and 
-              your baby. Remember, regular check-ups and maintaining a balanced diet 
-              and exercise routine are key to a healthy pregnancy.
+              Good news! You’re on the right track. Keep focusing on healthy habits and taking care of yourself and your baby. While your risk is low, it's important to keep an eye on areas like smoking, diet, and exercise. Regular check-ups and a balanced routine are key to a healthy pregnancy, so stay proactive about your well-being.
             </div>
           )}
 

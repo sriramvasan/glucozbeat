@@ -29,12 +29,13 @@ const Navbar = () => {
         <ul className="hidden h-full gap-12 sm:flex">
           <li><Link href='/Home' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Home</Link></li>
           <li><Link href='/UnderstandingGDM' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Understand GDM</Link></li>
+          <li><Link href='/LowGI101' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Low GI 101</Link></li>
           <li><Link href='/CheckYourRisk' className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">Wellness Check</Link></li>
 
           {/* Dropdown for Snap GI and Food Flip */}
           <li className="relative cursor-pointer">
             <div onClick={toggleDropdown} className="regular-16 text-gray-50 flexCenter pb-1.5 transition-all hover:font-bold flex items-center">
-              Explore <FaChevronDown className="ml-1" />
+              GI Tools <FaChevronDown className="ml-1" />
             </div>
             {dropdownOpen && (
               <ul className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-md">

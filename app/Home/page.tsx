@@ -70,7 +70,7 @@ const Home = () => {
             <div className="w-full mt-5">
               <p className="text-lg leading-8 text-white w-full">
                 Managing gestational diabetes can feel overwhelming 
-                <span className="hidden sm:inline">, especially when faced with unfamiliar advice and conflicting information</span>
+                <span className="hidden sm:inline">, especially for South Asian migrant women in Australia, who often face unfamiliar advice and conflicting information</span>
                 . That’s why we’re here—to guide you through every step of your journey 
                 <span className="hidden sm:inline"> with support, clarity, and culturally relevant resources</span>
               </p>

@@ -104,7 +104,7 @@ export default function LowGIPage() {
                         What is the Glycemic Index (GI)?
                     </h3>
                     <p>
-                        The <span className="text-purple-700"> Glycemic Index (GI)</span>  is a
+                        The  Glycemic Index (GI) is a
                         system that rates carbohydrate-containing foods by how much they
                         raise blood glucose levels compared to a standard food.
                     </p>
@@ -131,7 +131,7 @@ export default function LowGIPage() {
                         </li>
                     </ul>
                     <p>
-                        Foods <span className="text-purple-700">high in refined carbs and sugar </span>
+                        Foods high in refined carbs and sugar
                         are digested more quickly and
                         often have a high GI, while foods high in protein, fat, or fibre
                         typically have a low GI. Foods that contain no carbs are not
@@ -141,16 +141,16 @@ export default function LowGIPage() {
                     <p>
                         Low GI foods are beneficial as they help manage blood glucose
                         levels, reduce cholesterol, and keep you feeling full longer. They
-                        are particularly crucial for managing conditions like <span className="text-purple-700">
-                            gestational diabetes mellitus (GDM) </span> .
+                        are particularly crucial for managing conditions like
+                        gestational diabetes mellitus (GDM) .
                     </p>
 
                     <Admonishment>
                         <p>
-                            The <span className="text-purple-700">glycemic index (GI) </span>
+                            The glycemic index (GI)
                             is a way to see how much a certain food
-                            can raise your blood sugar. Foods with a <span className="text-purple-700">higher GI number make
-                            your blood sugar rise more quickly</span>, while foods with a lower GI
+                            can raise your blood sugar. Foods with a higher GI number make
+                            your blood sugar rise more quickly, while foods with a lower GI
                             have a smaller, slower effect.
                         </p>
                     </Admonishment>
@@ -219,8 +219,8 @@ export default function LowGIPage() {
                     </ul>
                     <div className="flex flex-col lg:flex-row bg-gray-100 px-4 lg:px-6">
                         <p className="flex-[1] pt-2 lg:pt-8 pl-4 text-sm">
-                            Science shows that a low GI diet helps <span className="text-purple-700">manage weight and reduces
-                                the risk of developing significant health problems</span> including type
+                            Science shows that a low GI diet helps manage weight and reduces
+                                the risk of developing significant health problems including type
                             2 diabetes, heart disease and some cancers.
                         </p>
                         <div className="flex-[3]">
@@ -273,11 +273,11 @@ export default function LowGIPage() {
                     </ul>
                     <p>
                         For a more personalized approach, use our{" "}
-                        <Link href="/SnapGI" className="text-blue-500 underline">
+                        <Link href="/SnapGI" className="text-purple-700 underline">
                             Snap GI
                         </Link> feature to
                         quickly check a food's glycemic index with a photo. Explore our{" "}
-                        <Link href="giFoods" className="text-blue-500 underline">
+                        <Link href="giFoods" className="text-purple-700 underline">
                             Food Flip
                         </Link>
                         {" "}function to effortlessly search for healthier, low-GI food alternatives and transform your meals for better health.
@@ -286,7 +286,7 @@ export default function LowGIPage() {
                     <Admonishment>
                         <p>
                             Following a low glycemic diet involves swapping out foods that
-                            have a high GI with low GI alternatives. <span className="text-purple-700">(*Hint: check out the amazing tools in our nav bar to help with this!)</span>  Incorporate these
+                            have a high GI with low GI alternatives.(*Hint: check out the amazing tools in our nav bar to help with this!) Incorporate these
                             commonly found South Asian foods into your diet for a balanced,
                             low-GI meal plan:
                         </p>
@@ -325,11 +325,11 @@ export default function LowGIPage() {
                     <p>
                         Looking for some expert advice to guide you on your journey? We’ve
                         gathered a handful of handy resources from trusted associations.
-                        These PDFs are packed with simple tips on <span className="text-purple-700">
-                        low-GI eating, meal
-                        planning, and how to maintain a healthy diet during
-                        pregnancy — especially when managing gestational diabetes.
-                            </span>
+                        These PDFs are packed with simple tips on 
+                            low-GI eating, meal
+                            planning, and how to maintain a healthy diet during
+                            pregnancy — especially when managing gestational diabetes.
+                       
                     </p>
                     <p>
                         Download them and use them whenever you need a quick reference to
