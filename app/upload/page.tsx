@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, DragEventHandler } from "react";
 import styles from './Upload.module.css'; // Import your CSS module
 
 const UploadPage = () => {
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const [dragging, setDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -32,6 +33,35 @@ const UploadPage = () => {
       fileInputRef.current.click(); // Simulate a click on the hidden file input
     }
   };
+
+  const handleDragEnter = (e: { preventDefault: () => void; stopPropagation: () => void; }) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragging(true);
+  };
+
+  const handleDragLeave = (e: { preventDefault: () => void; stopPropagation: () => void; }) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragging(false);
+  };
+
+  const handleDragOver = (e: { preventDefault: () => void; stopPropagation: () => void; }) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragging(false);
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      setFile(file);
+      setPreviewUrl(URL.createObjectURL(file));
+    }
+  };
+
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -78,6 +108,10 @@ const UploadPage = () => {
 
       <div
         className={styles.uploadArea}
+        onDragEnter={handleDragEnter}
+        onDragLeave={handleDragLeave}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
         onClick={handleImageClick}  // Make the upload area clickable
       >
         {previewUrl ? (
