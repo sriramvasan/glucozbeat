@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, WebSocket, WebSocketDisconnect, Request
+from fastapi import FastAPI, UploadFile, File, WebSocket, WebSocketDisconnect, Request, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
@@ -10,9 +10,16 @@ import base64
 import json
 import torch
 from transformers import AutoImageProcessor, AutoModelForImageClassification
+import mimetypes
+from slowapi import Limiter
+from slowapi.util import get_remote_address
 
 
 app = FastAPI()
+limiter = Limiter(key_func=get_remote_address)
+
+mimetypes.add_type('image/heic', '.heic')
+mimetypes.add_type('image/heif', '.heif')
 
 # Load YOLO model
 yolo_model = YOLO('model/yolov8s.pt')  # Update path to your weights as necessary
@@ -171,6 +178,7 @@ def classify_image_with_transformer(image_pil):
 
 
 @app.post("/detect/")
+@limiter.limit("11/minute")
 async def detect_objects(request: Request, file: UploadFile = File(...)):
     """Handle image uploads and process with the session ID."""
     try:
@@ -179,10 +187,15 @@ async def detect_objects(request: Request, file: UploadFile = File(...)):
         if not session_id:
             raise ValueError("Session ID not provided")
 
+        valid_image_types = ['image/png', 'image/jpg', 'image/jpeg', 'image/heic', 'image/heif']  # Added file type extensions to allowed file types
+        mime_type, _ = mimetypes.guess_type(file.filename)  # mimetypes verification of image upload
+        if mime_type is None or mime_type not in valid_image_types:  # error handling to verify image upload
+            raise HTTPException(status_code=400, detail='Invalid image type: Accepted extensions are .png, .jpg, .jpeg, .heic, .heif')  # exception handling
+        
         # Read the uploaded image file
         image_data = await file.read()
         print("File received, size:", len(image_data))
-
+            
         # Open the image file directly using PIL (without converting to a NumPy array)
         image_pil = Image.open(io.BytesIO(image_data))
         image_cv = cv2.cvtColor(np.array(image_pil), cv2.COLOR_RGB2BGR)
